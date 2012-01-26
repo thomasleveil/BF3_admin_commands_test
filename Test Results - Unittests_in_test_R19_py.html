@@ -572,8 +572,8 @@ jQuery.cookie = function(name, value, options) {
 <body>
 <div id="container">
 <div id="header">
-<div class="time">1 m 18 s</div>
-<h1>Unittests in test_R19.py: <strong><span class="total">104 total, </span><span class="error">2 error, </span><span class="failed">19 failed, </span><span class="ignored">14 ignored, </span><span class="passed">69 passed</span></strong>
+<div class="time">46.07 s</div>
+<h1>Unittests in test_R19.py: <strong><span class="total">104 total, </span><span class="failed">22 failed, </span><span class="ignored">14 ignored, </span><span class="passed">68 passed</span></strong>
 </h1>
 <div id="treecontrol">
 <ul>
@@ -591,7 +591,7 @@ jQuery.cookie = function(name, value, options) {
 <ul id="tree">
 <li xmlns="" class="level top failed open">
 <span><em class="time">
-<div class="time">1 m 5 s</div>
+<div class="time">32.66 s</div>
 </em>test_R19.Test_authenticated</span>
 <ul>
 <li class="level test ignored open">
@@ -610,7 +610,7 @@ jQuery.cookie = function(name, value, options) {
 </em><em class="status">failed</em>test_admin_eventsEnabled__bad_argument</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got success instead : %r&quot; % (self.error_type, res))<br/>AssertionError: expecting InvalidArguments, got success instead : None<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidArguments<br/></span>
 </li>
 </ul>
 </li>
@@ -621,22 +621,22 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">1.03 s</div>
+<div class="time">1.08 s</div>
 </em><em class="status">passed</em>test_admin_eventsEnabled__nominal_true_false</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">164 ms</div>
 </em><em class="status">passed</em>test_admin_eventsEnabled__too_many_arguments</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">1.01 s</div>
+<div class="time">963 ms</div>
 </em><em class="status">passed</em>test_admin_help__nominal</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_admin_help__with_junk</span>
 </li>
 <li class="level test ignored open">
@@ -651,7 +651,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test ignored open">
 <span><em class="time">
-<div class="time">1 ms</div>
+<div class="time">5 ms</div>
 </em><em class="status">ignored</em>test_admin_killPlayer</span>
 <ul>
 <li class="text">
@@ -681,11 +681,11 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">216 ms</div>
-</em><em class="status">error</em>test_admin_password__nominal_no_argument</span>
+<div class="time">167 ms</div>
+</em><em class="status">failed</em>test_admin_password__nominal_no_argument</span>
 <ul>
 <li class="text">
-<span class="stderr">Error<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 97, in test_admin_password__nominal_no_argument<br/>    self.cmd(&#39;admin.password&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 132, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;InvalidArguments&#39;]<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 97, in test_admin_password__nominal_no_argument<br/>    self.cmd(&#39;admin.password&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;InvalidArguments&#39;]<br/></span>
 </li>
 </ul>
 </li>
@@ -700,13 +700,13 @@ jQuery.cookie = function(name, value, options) {
 </em><em class="status">failed</em>test_admin_say__all_and_junk</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got success instead : %r&quot; % (self.error_type, res))<br/>AssertionError: expecting InvalidArguments, got success instead : None<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidArguments<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">513 ms</div>
+<div class="time">514 ms</div>
 </em><em class="status">passed</em>test_admin_say__no_argument</span>
 </li>
 <li class="level test">
@@ -716,27 +716,27 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">617 ms</div>
-</em><em class="status">error</em>test_admin_say__nominal_player</span>
+<div class="time">517 ms</div>
+</em><em class="status">failed</em>test_admin_say__nominal_player</span>
 <ul>
 <li class="text">
-<span class="stderr">Error<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 188, in test_admin_say__nominal_player<br/>    self.cmd(&#39;admin.say&#39;, &#39;msg blah&#39;, &#39;player&#39;, &#39;f00&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 132, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;InvalidArguments&#39;]<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 188, in test_admin_say__nominal_player<br/>    self.cmd(&#39;admin.say&#39;, &#39;msg blah&#39;, &#39;player&#39;, &#39;f00&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;InvalidArguments&#39;]<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_admin_say__nominal_squad</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">464 ms</div>
+<div class="time">1.06 s</div>
 </em><em class="status">passed</em>test_admin_say__nominal_team</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">513 ms</div>
+<div class="time">463 ms</div>
 </em><em class="status">passed</em>test_admin_say__not_enough_argument</span>
 </li>
 <li class="level test failed open">
@@ -781,7 +781,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">failed</em>test_admin_say__squad_no_team_number</span>
 <ul>
 <li class="text">
@@ -791,7 +791,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">failed</em>test_admin_say__squad_too_many_arguments</span>
 <ul>
 <li class="text">
@@ -805,13 +805,13 @@ jQuery.cookie = function(name, value, options) {
 </em><em class="status">failed</em>test_admin_say__team_and_junk</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got success instead : %r&quot; % (self.error_type, res))<br/>AssertionError: expecting InvalidTeam, got success instead : None<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidTeam<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">463 ms</div>
+<div class="time">516 ms</div>
 </em><em class="status">failed</em>test_admin_say__team_no_team_number</span>
 <ul>
 <li class="text">
@@ -834,14 +834,19 @@ jQuery.cookie = function(name, value, options) {
 </li>
 </ul>
 </li>
-<li class="level test">
+<li class="level test failed open">
 <span><em class="time">
-<div class="time">38.47 s</div>
-</em><em class="status">passed</em>test_mapList_add__Full</span>
+<div class="time">6.83 s</div>
+</em><em class="status">failed</em>test_mapList_add__Full</span>
+<ul>
+<li class="text">
+<span class="stderr">Exception in thread Thread-2:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 483, in run<br/>    self.__target(*self.__args, **self.__kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 343, in add_20_maps<br/>    self.cmd(&#39;mapList.add&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 324, in command<br/>    response = self._wait_for_response(command_id)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 410, in _wait_for_response<br/>    raise CommandTimeoutError(&quot;Did not receive any response for sequence #%i.&quot; % command_id)<br/>CommandTimeoutError: Did not receive any response for sequence #63.<br/>Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error Full<br/></span>
+</li>
+</ul>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">165 ms</div>
 </em><em class="status">passed</em>test_mapList_add__InvalidArguments_missing_rounds</span>
 </li>
 <li class="level test">
@@ -856,12 +861,12 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_mapList_add__InvalidGameModeOnMap</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">failed</em>test_mapList_add__InvalidMap</span>
 <ul>
 <li class="text">
@@ -871,12 +876,12 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_mapList_add__InvalidRoundsPerMap_0</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_mapList_add__InvalidRoundsPerMap_negative</span>
 </li>
 <li class="level test">
@@ -891,7 +896,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">611 ms</div>
+<div class="time">542 ms</div>
 </em><em class="status">failed</em>test_mapList_add__nominal_1999999999999999_rounds</span>
 <ul>
 <li class="text">
@@ -901,42 +906,42 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">380 ms</div>
+<div class="time">426 ms</div>
 </em><em class="status">passed</em>test_mapList_add_with_index__InvalidMapIndex_1</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">376 ms</div>
+<div class="time">326 ms</div>
 </em><em class="status">failed</em>test_mapList_add_with_index__InvalidMapIndex_lots_of_rubish</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got success instead : %r&quot; % (self.error_type, res))<br/>AssertionError: expecting InvalidMapIndex, got success instead : None<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidMapIndex<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">426 ms</div>
+<div class="time">326 ms</div>
 </em><em class="status">failed</em>test_mapList_add_with_index__InvalidMapIndex_negative</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got success instead : %r&quot; % (self.error_type, res))<br/>AssertionError: expecting InvalidMapIndex, got success instead : None<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidMapIndex<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">426 ms</div>
+<div class="time">326 ms</div>
 </em><em class="status">failed</em>test_mapList_add_with_index__InvalidMapIndex_rubish</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got success instead : %r&quot; % (self.error_type, res))<br/>AssertionError: expecting InvalidMapIndex, got success instead : None<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidMapIndex<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">2.22 s</div>
+<div class="time">1.67 s</div>
 </em><em class="status">passed</em>test_mapList_add_with_index__nominal</span>
 </li>
 <li class="level test ignored open">
@@ -951,7 +956,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test ignored open">
 <span><em class="time">
-<div class="time">4 ms</div>
+<div class="time">5 ms</div>
 </em><em class="status">ignored</em>test_mapList_clear</span>
 <ul>
 <li class="text">
@@ -966,7 +971,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">379 ms</div>
+<div class="time">329 ms</div>
 </em><em class="status">failed</em>test_mapList_clear__nominal</span>
 <ul>
 <li class="text">
@@ -1011,12 +1016,12 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_mapList_list_with_index__f00</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">214 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_mapList_list_with_index__negative</span>
 </li>
 <li class="level test">
@@ -1026,36 +1031,36 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_mapList_remove__InvalidArguments_missing</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">702 ms</div>
+<div class="time">902 ms</div>
 </em><em class="status">passed</em>test_mapList_remove__InvalidArguments_too_many</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">326 ms</div>
+<div class="time">426 ms</div>
 </em><em class="status">passed</em>test_mapList_remove__InvalidMapIndex_empty_list</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">870 ms</div>
+<div class="time">922 ms</div>
 </em><em class="status">failed</em>test_mapList_remove__InvalidMapIndex_negative</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    res = func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 432, in test_mapList_remove__InvalidMapIndex_negative<br/>    self.assertEqual([&#39;2&#39;,&#39;3&#39;, &#39;MP_001&#39;,&#39;RushLarge0&#39;,&#39;1&#39;, &#39;MP_003&#39;,&#39;ConquestSmall0&#39;,&#39;2&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;Conquest...<br/>First differing element 0:<br/>2<br/>1<br/>First list contains 3 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 445, in test_mapList_remove__InvalidMapIndex_negative<br/>    self.assertEqual([&#39;2&#39;,&#39;3&#39;, &#39;MP_001&#39;,&#39;RushLarge0&#39;,&#39;1&#39;, &#39;MP_003&#39;,&#39;ConquestSmall0&#39;,&#39;2&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;Conquest...<br/>First differing element 0:<br/>2<br/>1<br/>First list contains 3 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">871 ms</div>
+<div class="time">1.02 s</div>
 </em><em class="status">failed</em>test_mapList_remove__InvalidMapIndex_not_index</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    res = func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 426, in test_mapList_remove__InvalidMapIndex_not_index<br/>    self.assertEqual([&#39;2&#39;,&#39;3&#39;, &#39;MP_001&#39;,&#39;RushLarge0&#39;,&#39;1&#39;, &#39;MP_003&#39;,&#39;ConquestSmall0&#39;,&#39;2&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;Conquest...<br/>First differing element 0:<br/>2<br/>1<br/>First list contains 3 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 439, in test_mapList_remove__InvalidMapIndex_not_index<br/>    self.assertEqual([&#39;2&#39;,&#39;3&#39;, &#39;MP_001&#39;,&#39;RushLarge0&#39;,&#39;1&#39;, &#39;MP_003&#39;,&#39;ConquestSmall0&#39;,&#39;2&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;Conquest...<br/>First differing element 0:<br/>2<br/>1<br/>First list contains 3 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/></span>
 </li>
 </ul>
 </li>
@@ -1111,12 +1116,12 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_punkBuster_isActive__nominal</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_punkBuster_pb_sv_command__bad_pb_command</span>
 </li>
 <li class="level test">
@@ -1143,7 +1148,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level top failed open">
 <span><em class="time">
-<div class="time">13.17 s</div>
+<div class="time">13.41 s</div>
 </em>test_R19.Test_not_authenticated</span>
 <ul>
 <li class="level test">
@@ -1163,7 +1168,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_listplayers__no_argument</span>
 </li>
 <li class="level test">
@@ -1173,7 +1178,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_listplayers__player_nominal</span>
 </li>
 <li class="level test">
@@ -1188,7 +1193,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_listplayers__squad_no_squad_number</span>
 </li>
 <li class="level test">
@@ -1198,32 +1203,32 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_listplayers__squad_nominal</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_listplayers__squad_too_many_arguments</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">failed</em>test_listplayers__team_and_junk</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got success instead : %r&quot; % (self.error_type, res))<br/>AssertionError: expecting InvalidArguments, got success instead : None<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidArguments<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">215 ms</div>
 </em><em class="status">passed</em>test_listplayers__team_no_team_number</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_listplayers__team_nominal</span>
 </li>
 <li class="level test">
@@ -1233,7 +1238,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">1.03 s</div>
+<div class="time">1.08 s</div>
 </em><em class="status">passed</em>test_login_hashed__and__logout__nominal</span>
 </li>
 <li class="level test">
@@ -1253,12 +1258,12 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">966 ms</div>
+<div class="time">965 ms</div>
 </em><em class="status">passed</em>test_login_plainText__and__logout__nominal</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_login_plainText__bad_password</span>
 </li>
 <li class="level test">
@@ -1268,7 +1273,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_login_plainText__too_many_arguments</span>
 </li>
 <li class="level test">
@@ -1278,7 +1283,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">6.32 s</div>
+<div class="time">6.47 s</div>
 </em><em class="status">passed</em>test_not_allowed_commands_raise_LogInRequired</span>
 </li>
 <li class="level test">
@@ -1302,7 +1307,7 @@ jQuery.cookie = function(name, value, options) {
 </div>
 </div>
 <div id="footer">
-<p>Generated by PyCharm on 26/01/12 02:41</p>
+<p>Generated by PyCharm on 26/01/12 21:35</p>
 </div>
 </body>
 </html>

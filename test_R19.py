@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
+import threading
 import os, sys, re, Queue, logging
 import unittest
-from threading import Thread
 from lib.bf3testutils import expect_error, BF3_authenticated_TestCase, BF3_connected_TestCase
 from lib.protocol import CommandFailedError, generatePasswordHash
 
@@ -337,10 +337,23 @@ class Test_authenticated(BF3_authenticated_TestCase):
     @expect_error('Full')
     def test_mapList_add__Full(self):
         self.cmd('mapList.clear')
-        for i in range(200):
-            # they should all succeed
-            self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1')
-        # this one must fail
+
+        def add_20_maps():
+            for i in range(20):
+                self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1')
+
+        # add 200 maps to the mapList
+        threads = []
+        for i in range(10):
+            t = threading.Thread(target=add_20_maps)
+            threads.append(t)
+            t.start()
+
+        # wait for threads to end
+        for t in threads:
+            t.join()
+
+        # verify that adding a 201th map fails
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '3')
 
 
@@ -798,7 +811,7 @@ class Test_not_authenticated(BF3_connected_TestCase):
             )
 
 
-        class CommanderThread(Thread):
+        class CommanderThread(threading.Thread):
             todo = Queue.Queue(maxsize=len(all_commands))
             results = Queue.Queue(maxsize=len(all_commands))
 
