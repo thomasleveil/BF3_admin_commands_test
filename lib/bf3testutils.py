@@ -15,12 +15,12 @@ class expect_error(object):
     def __call__(self, func):
         def wrapper(*args, **kwargs):
             try:
-                res = func(*args, **kwargs)
+                func(*args, **kwargs)
             except CommandFailedError, err:
                 if err.message[0] != self.error_type:
                     raise AssertionError("expecting %s, got %r instead" % (self.error_type, err))
             else:
-                raise AssertionError("expecting %s, got success instead : %r" % (self.error_type, res))
+                raise AssertionError("expecting error %s" % self.error_type)
         return wrapper
 
 
@@ -51,12 +51,20 @@ class _BF3_TestCase(object):
 
 
 
+class TestFailuresTypes(tuple):
+    """
+    class that acts a a tuple but when called acts as if AssertionError was called.
 
-
+    Setting a unittest.TestCase failureException attribute to an instance of TestFailuresTypes can make the test runner
+    interpret additional exception types as failures instead of errors.
+    """
+    def __call__(self, *args, **kwargs):
+        return AssertionError(*args, **kwargs)
 
 
 class BF3_connected_TestCase(unittest.TestCase):
 
+    failureException = TestFailuresTypes((AssertionError, CommandFailedError))
     t_conn = None
 
     @classmethod
@@ -96,6 +104,7 @@ BF3_connected_TestCase.__bases__ += (_BF3_TestCase, )
 
 class BF3_authenticated_TestCase(unittest.TestCase):
 
+    failureException = TestFailuresTypes((AssertionError, CommandFailedError))
     t_conn = None
 
     @classmethod
