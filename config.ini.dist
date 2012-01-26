@@ -1,0 +1,7 @@
+[BF3]
+host =
+port =
+password =
+
+[TESTS]
+skip_time_consuming_tests = False
