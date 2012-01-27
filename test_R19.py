@@ -47,20 +47,19 @@ print "Test running against BF3 server %s:%s" % (host, port)
 R19_version = '903227'
 
 
-class Test_authenticated(BF3_authenticated_TestCase):
+class Test_admin_eventsEnabled(BF3_authenticated_TestCase):
 
     protocol_log_level = logging.ERROR
     bf3_host = host
     bf3_port = port
     bf3_passwd = pw
 
+    ## admin.eventsEnabled [enabled: boolean]
 
-    ## admin.eventsEnabled
-
-    def test_admin_eventsEnabled__nominal_no_arg(self):
+    def test_nominal_no_arg(self):
         self.assertIn(self.cmd('admin.eventsEnabled'), (['true'], ['false']))
 
-    def test_admin_eventsEnabled__nominal_true_false(self):
+    def test_nominal_true_false(self):
         self.cmd('admin.eventsEnabled', 'true')
         self.assertEqual(['true'], self.cmd('admin.eventsEnabled'))
         self.cmd('admin.eventsEnabled', 'false')
@@ -69,29 +68,51 @@ class Test_authenticated(BF3_authenticated_TestCase):
         self.assertEqual(['true'], self.cmd('admin.eventsEnabled'))
 
     @expect_error('InvalidArguments')
-    def test_admin_eventsEnabled__bad_argument(self):
+    def test_bad_argument(self):
         self.cmd('admin.eventsEnabled', 'f00')
 
     @expect_error('InvalidArguments')
-    def test_admin_eventsEnabled__too_many_arguments(self):
+    def test_too_many_arguments(self):
         self.cmd('admin.eventsEnabled', 'true', 'false')
 
 
 
-    ## admin.password
+class Test_admin_password(BF3_authenticated_TestCase):
 
-    def test_admin_password__nominal_no_argument(self):
-        self.cmd('admin.password')
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
+
+    ## admin.password [password: password]
+
+    def test_nominal_no_argument(self):
+        self.assertEqual([pw], self.cmd('admin.password'))
+
+    @unittest.skip("this one will set an empty string as password. Is this what the doc means by 'reset' the password ?")
+    def test_empty_string_argument(self):
+        self.cmd('admin.password', '')
 
     @expect_error('InvalidArguments')
-    def test_admin_password__too_many_arguments(self):
+    def test_too_many_arguments(self):
         self.cmd('admin.password', 'sdf', 'f00')
 
+    @expect_error('InvalidPassword')
+    def test_password_with_forbidden_chars(self):
+        self.cmd('admin.password', '%ù*_-(){}')
 
+
+
+class Test_admin_help(BF3_authenticated_TestCase):
+
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
 
     ## admin.help
 
-    def test_admin_help__nominal(self):
+    def test_nominal(self):
         all_commands = set(['admin.eventsEnabled', 'admin.help', 'admin.kickPlayer', 'admin.killPlayer', 'admin.listPlayers',
             'admin.movePlayer', 'admin.password', 'admin.say', 'admin.shutDown', 'banList.add', 'banList.clear',
             'banList.list', 'banList.load', 'banList.remove', 'banList.save', 'currentLevel', 'gameAdmin.add',
@@ -115,9 +136,117 @@ class Test_authenticated(BF3_authenticated_TestCase):
         self.assertEqual(all_commands, set(result))
 
     @expect_error('InvalidArguments')
-    def test_admin_help__with_junk(self):
+    def test_bad_argument(self):
         self.cmd('admin.help', 'f00')
 
+
+
+class Test_serverInfo(BF3_authenticated_TestCase):
+
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
+
+    ## serverInfo
+
+    def test_nominal(self):
+        self.cmd('serverInfo')
+
+    @expect_error('InvalidArguments')
+    def test_with_junk(self):
+        self.cmd('serverInfo', 'f00')
+
+
+
+
+class Test_admin_kickPlayer(BF3_authenticated_TestCase):
+
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
+
+    ## admin.kickPlayer <soldier name: player name> [reason: string]
+
+    @expect_error('PlayerNotFound')
+    def test_non_existing_player(self):
+        self.cmd('admin.kickPlayer', 'f00')
+
+    @expect_error('PlayerNotFound')
+    def test_non_existing_player_with_reason(self):
+        self.cmd('admin.kickPlayer', 'f00', 'reason')
+
+    @expect_error('InvalidArguments')
+    def test_no_argument(self):
+        self.cmd('admin.kickPlayer')
+
+    @expect_error('InvalidArguments')
+    def test_too_many_arguments(self):
+        self.cmd('admin.kickPlayer', 'playername', 'reason', 'f00')
+
+
+
+class Test_admin_movePlayer(BF3_authenticated_TestCase):
+
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
+
+    ## admin.movePlayer <name: player name> <teamId: Team ID> <squadId: Squad ID> <forceKill: boolean>
+
+    @expect_error('InvalidArguments')
+    def test_no_argument(self):
+        self.cmd('admin.movePlayer')
+
+    @expect_error('InvalidArguments')
+    def test_one_argument(self):
+        self.cmd('admin.movePlayer', 'name')
+
+    @expect_error('InvalidArguments')
+    def test_two_arguments(self):
+        self.cmd('admin.movePlayer', 'name', '0')
+
+    @expect_error('InvalidArguments')
+    def test_three_arguments(self):
+        self.cmd('admin.movePlayer', 'name', '0', '0')
+
+    @expect_error('InvalidPlayerName')
+    def test_non_existing_player(self):
+        self.cmd('admin.movePlayer', 'f00', '0', '0', 'false')
+
+
+
+class Test_admin_killPlayer(BF3_authenticated_TestCase):
+
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
+
+    ## admin.killPlayer <name: player name>
+
+    @expect_error('InvalidArguments')
+    def test_no_argument(self):
+        self.cmd('admin.killPlayer')
+
+    @expect_error('InvalidPlayerName')
+    def test_non_existing_player(self):
+        self.cmd('admin.killPlayer', 'f00')
+
+    @expect_error('InvalidArguments')
+    def test_too_many_arguments(self):
+        self.cmd('admin.killPlayer', 'name', 'f00')
+
+
+
+class Test_punkBuster(BF3_authenticated_TestCase):
+
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
 
 
     ## punkBuster.isActive
@@ -134,7 +263,7 @@ class Test_authenticated(BF3_authenticated_TestCase):
 
 
 
-    ## punkBuster.pb_sv_command
+    ## punkBuster.pb_sv_command <command: string>
 
     def test_punkBuster_pb_sv_command__nominal_PB_SV_List(self):
         self.cmd('punkBuster.pb_sv_command', 'PB_SV_List')
@@ -149,295 +278,182 @@ class Test_authenticated(BF3_authenticated_TestCase):
 
 
 
-    ## serverInfo
 
-    def test_serverInfo__nominal(self):
-        self.cmd('serverInfo')
-
-    @expect_error('InvalidArguments')
-    def test_serverInfo__with_junk(self):
-        self.cmd('serverInfo', 'f00')
-
-
-
-    ## admin.say
-
-    def test_admin_say__nominal_all(self):
-        self.cmd('admin.say', 'msg blah', 'all')
-
-    def test_admin_say__nominal_team(self):
-        self.cmd('admin.say', 'msg blah', 'team', '0')
-
-    def test_admin_say__nominal_squad(self):
-        self.cmd('admin.say', 'msg blah', 'squad', '0', '0')
-
-    def test_admin_say__nominal_player(self):
-        self.cmd('admin.say', 'msg blah', 'player', 'f00')
-
-
-    @expect_error('InvalidArguments')
-    def test_admin_say__no_argument(self):
-        self.cmd('admin.say')
-
-    @expect_error('InvalidArguments')
-    def test_admin_say__too_many_arguments(self):
-        self.cmd('admin.say', 'f00', 'f00', 'f00', 'f00', 'f00')
-
-    @expect_error('InvalidArguments')
-    def test_admin_say__not_enough_argument(self):
-        self.cmd('admin.say', 'f00')
-
-    @expect_error('InvalidArguments')
-    def test_admin_say__all_and_junk(self):
-        self.cmd('admin.say', 'msg blah', 'all', 'f00')
-
-    @expect_error('InvalidTeam')
-    def test_admin_say__team_no_team_number(self):
-        self.cmd('admin.say', 'msg blah', 'team')
-
-    @expect_error('InvalidTeam')
-    def test_admin_say__team_and_junk(self):
-        self.cmd('admin.say', 'msg blah', 'team', 'f00')
-
-    @expect_error('InvalidSquad')
-    def test_admin_say__squad_no_team_number(self):
-        self.cmd('admin.say', 'msg blah', 'squad')
-
-    @expect_error('InvalidSquad')
-    def test_admin_say__squad_and_junk(self):
-        self.cmd('admin.say', 'msg blah', 'squad', 'f00')
-
-    @expect_error('InvalidSquad')
-    def test_admin_say__squad_no_squad_number(self):
-        self.cmd('admin.say', 'msg blah', 'squad', '0')
-
-    @expect_error('InvalidSquad')
-    def test_admin_say__squad_too_many_arguments(self):
-        self.cmd('admin.say', 'msg blah', 'squad', '0', '0', '0', '0')
-
-    @expect_error('InvalidPlayer')
-    def test_admin_say__player_and_no_player_name(self):
-        self.cmd('admin.say', 'msg blah', 'player')
-
-    @expect_error('InvalidPlayer')
-    def test_admin_say__player_too_many_arguments(self):
-        self.cmd('admin.say', 'msg blah', 'player', 'f00', 'fOO')
-
-
-
-    ## admin.kickPlayer
-
-    @expect_error('PlayerNotFound')
-    def test_admin_kickPlayer__PlayerNotFound(self):
-        self.cmd('admin.kickPlayer', 'f00')
-
-    @expect_error('PlayerNotFound')
-    def test_admin_kickPlayer__PlayerNotFound_with_reason(self):
-        self.cmd('admin.kickPlayer', 'f00', 'reason')
-
-    @expect_error('InvalidArguments')
-    def test_admin_kickPlayer__no_argument(self):
-        self.cmd('admin.kickPlayer')
-
-    @expect_error('InvalidArguments')
-    def test_admin_kickPlayer__too_many_arguments(self):
-        self.cmd('admin.kickPlayer', 'playername', 'reason', 'f00')
-
-
-
-
-    ## admin.listPlayers
-
-
-    def test_admin_listplayers__all_nominal(self):
-        res = self.cmd('admin.listPlayers', 'all')
-        self.assertEqual(['7', 'name', 'guid', 'teamId', 'squadId', 'kills', 'deaths', 'score'], res[:8])
-
-    def test_admin_listplayers__team_nominal(self):
-        res = self.cmd('admin.listPlayers', 'team', '0')
-        self.assertEqual(['7', 'name', 'guid', 'teamId', 'squadId', 'kills', 'deaths', 'score'], res[:8])
-
-    def test_admin_listplayers__squad_nominal(self):
-        res = self.cmd('admin.listPlayers', 'squad', '0', '0')
-        self.assertEqual(['7', 'name', 'guid', 'teamId', 'squadId', 'kills', 'deaths', 'score'], res[:8])
-
-    def test_admin_listplayers__player_nominal(self):
-        res = self.cmd('admin.listPlayers', 'player', 'f00')
-        self.assertEqual(['7', 'name', 'guid', 'teamId', 'squadId', 'kills', 'deaths', 'score', '0'], res)
-
-
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__no_argument(self):
-        self.cmd('admin.listPlayers')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__too_many_arguments(self):
-        self.cmd('admin.listPlayers', 'f00', 'f00', 'f00', 'f00')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__bad_argument(self):
-        self.cmd('admin.listPlayers', 'f00')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__no_argument(self):
-        self.cmd('admin.listPlayers')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__all_and_junk(self):
-        self.cmd('admin.listPlayers', 'all', 'f00')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__team_no_team_number(self):
-        self.cmd('admin.listPlayers', 'team')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__team_and_junk(self):
-        self.cmd('admin.listPlayers', 'team', 'f00')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__squad_no_team_number(self):
-        self.cmd('admin.listPlayers', 'squad')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__squad_and_junk(self):
-        self.cmd('admin.listPlayers', 'squad', 'f00')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__squad_no_squad_number(self):
-        self.cmd('admin.listPlayers', 'squad', '0')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__squad_too_many_arguments(self):
-        self.cmd('admin.listPlayers', 'squad', '0', '0', '0', '0')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__player_and_no_player_name(self):
-        self.cmd('admin.listPlayers', 'player')
-
-    @expect_error('InvalidArguments')
-    def test_admin_listplayers__player_too_many_arguments(self):
-        self.cmd('admin.listPlayers', 'player', 'f00', 'fOO')
-
-
-
-
-
-    ## admin.movePlayer <name: player name> <teamId: Team ID> <squadId: Squad ID> <forceKill: boolean>
-
-    @expect_error('InvalidArguments')
-    def test_admin_movePlayer__no_argument(self):
-        self.cmd('admin.movePlayer')
-
-    @expect_error('InvalidArguments')
-    def test_admin_movePlayer__one_argument(self):
-        self.cmd('admin.movePlayer', 'name')
-
-    @expect_error('InvalidArguments')
-    def test_admin_movePlayer__two_arguments(self):
-        self.cmd('admin.movePlayer', 'name', '0')
-
-    @expect_error('InvalidArguments')
-    def test_admin_movePlayer__three_arguments(self):
-        self.cmd('admin.movePlayer', 'name', '0', '0')
-
-    @expect_error('InvalidPlayerName')
-    def test_admin_movePlayer__InvalidPlayerName(self):
-        self.cmd('admin.movePlayer', 'f00', '0', '0', 'false')
-
-
-
-
-    ## admin.killPlayer <name: player name>
-
-    @expect_error('InvalidArguments')
-    def test_admin_killPlayer__no_argument(self):
-        self.cmd('admin.killPlayer')
-
-    @expect_error('InvalidPlayerName')
-    def test_admin_killPlayer__InvalidPlayerName(self):
-        self.cmd('admin.killPlayer', 'f00')
-
-    @expect_error('InvalidArguments')
-    def test_admin_killPlayer__too_many_arguments(self):
-        self.cmd('admin.killPlayer', 'name', 'f00')
-
-
-
-
-class Test_banList(BF3_authenticated_TestCase):
+class Test_admin_listPlayers(BF3_authenticated_TestCase):
 
     protocol_log_level = logging.ERROR
     bf3_host = host
     bf3_port = port
     bf3_passwd = pw
 
-    ## banList.add <id-type, id, timeout, reason>
+    ## admin.listPlayers
+
+
+    def test_all_nominal(self):
+        res = self.cmd('admin.listPlayers', 'all')
+        self.assertEqual(['7', 'name', 'guid', 'teamId', 'squadId', 'kills', 'deaths', 'score'], res[:8])
+
+    def test_team_nominal(self):
+        res = self.cmd('admin.listPlayers', 'team', '0')
+        self.assertEqual(['7', 'name', 'guid', 'teamId', 'squadId', 'kills', 'deaths', 'score'], res[:8])
+
+    def test_squad_nominal(self):
+        res = self.cmd('admin.listPlayers', 'squad', '0', '0')
+        self.assertEqual(['7', 'name', 'guid', 'teamId', 'squadId', 'kills', 'deaths', 'score'], res[:8])
+
+    def test_player_nominal(self):
+        res = self.cmd('admin.listPlayers', 'player', 'f00')
+        self.assertEqual(['7', 'name', 'guid', 'teamId', 'squadId', 'kills', 'deaths', 'score', '0'], res)
+
+
 
     @expect_error('InvalidArguments')
-    def test_banList_add__no_argument(self):
-        self.cmd('banList.add')
+    def test_no_argument(self):
+        self.cmd('admin.listPlayers')
 
     @expect_error('InvalidArguments')
-    def test_banList_add__too_many_arguments(self):
-        self.cmd('banList.clear')
-        self.cmd('banList.add', 'name', 'id', 'perm', 'reason', 'f00', 'bar')
-        self.fail("expected error InvalidArguments, but command succeeded instead and banlist content is %r" % self.cmd('banList.list'))
+    def test_too_many_arguments(self):
+        self.cmd('admin.listPlayers', 'f00', 'f00', 'f00', 'f00')
 
-    @expect_error('InvalidBanReason')
-    def test_banList_add__reason_with_more_than_80_char(self):
-        # trying with 80 char (should pass)
-        self.cmd('banList.clear')
-        self.cmd('banList.add', 'name', 'id', 'perm', 'reason 89 123456789 123456789 123456789 123456789 123456789 123456789 123456789 ')
-        self.assertEqual(['name', 'id', 'perm', '0', '0', 'reason 89 123456789 123456789 123456789 123456789 123456789 123456789 123456789 '], self.cmd('banList.list'))
-        # trying with 81 char (should fail)
-        self.cmd('banList.clear')
-        self.cmd('banList.add', 'name', 'id', 'perm', 'reason 89 123456789 123456789 123456789 123456789 123456789 123456789 123456789 1')
-        self.fail("expected error InvalidArguments, but command succeeded instead and banlist content is %r" % self.cmd('banList.list'))
+    @expect_error('InvalidArguments')
+    def test_bad_argument(self):
+        self.cmd('admin.listPlayers', 'f00')
 
-    def _test_banList_add__nominal(self, test_data):
-        for args, expected in test_data:
-            print "banList.add %s" % ", ".join(args)
-            self.cmd('banList.clear')
-            self.cmd('banList.add', *args)
-            result = self.cmd('banList.list')
-            try:
-                self.assertEqual(expected[0:3], result[0:3])
-                self.assertAlmostEqual(int(expected[3]), int(result[3]), delta=2)
-                self.assertEqual(expected[4:], result[4:])
-            except AssertionError:
-                self.assertEqual(expected, result) # will give a better failure message with complete diff
+    @expect_error('InvalidArguments')
+    def test_no_argument(self):
+        self.cmd('admin.listPlayers')
 
-    def test_banList_add__nominal_by_name(self):
-        self._test_banList_add__nominal([
-            (('name', 'f00', 'perm'),                       ['name', 'f00', 'perm', '0', '0', 'Banned by admin']),
-            (('name', 'f00', 'perm', 'a reason'),           ['name', 'f00', 'perm', '0', '0', 'a reason']),
-            (('name', 'f00', 'rounds', '1'),                ['name', 'f00', 'rounds', '0', '1', 'Banned by admin']),
-            (('name', 'f00', 'rounds', '1', 'a reason'),    ['name', 'f00', 'rounds', '0', '1', 'a reason']),
-            (('name', 'f00', 'seconds', '70'),              ['name', 'f00', 'seconds', '70', '0', 'Banned by admin']),
-            (('name', 'f00', 'seconds', '150', 'a reason'), ['name', 'f00', 'seconds', '150', '0', 'a reason']),
-        ])
+    @expect_error('InvalidArguments')
+    def test_all_and_junk(self):
+        self.cmd('admin.listPlayers', 'all', 'f00')
 
-    def test_banList_add__nominal_by_ip(self):
-        self._test_banList_add__nominal([
-            (('ip', '11.22.33.44', 'perm'),                       ['ip', '11.22.33.44', 'perm', '0', '0', 'Banned by admin']),
-            (('ip', '11.22.33.44', 'perm', 'a reason'),           ['ip', '11.22.33.44', 'perm', '0', '0', 'a reason']),
-            (('ip', '11.22.33.44', 'rounds', '1'),                ['ip', '11.22.33.44', 'rounds', '0', '1', 'Banned by admin']),
-            (('ip', '11.22.33.44', 'rounds', '1', 'a reason'),    ['ip', '11.22.33.44', 'rounds', '0', '1', 'a reason']),
-            (('ip', '11.22.33.44', 'seconds', '70'),              ['ip', '11.22.33.44', 'seconds', '70', '0', 'Banned by admin']),
-            (('ip', '11.22.33.44', 'seconds', '150', 'a reason'), ['ip', '11.22.33.44', 'seconds', '150', '0', 'a reason']),
-        ])
+    @expect_error('InvalidArguments')
+    def test_team_no_team_number(self):
+        self.cmd('admin.listPlayers', 'team')
 
-    def test_banList_add__nominal_by_guid(self):
-        self._test_banList_add__nominal([
-            (('guid', 'EA_00000000', 'perm'),                       ['guid', 'EA_00000000', 'perm', '0', '0', 'Banned by admin']),
-            (('guid', 'EA_00000000', 'perm', 'a reason'),           ['guid', 'EA_00000000', 'perm', '0', '0', 'a reason']),
-            (('guid', 'EA_00000000', 'rounds', '1'),                ['guid', 'EA_00000000', 'rounds', '0', '1', 'Banned by admin']),
-            (('guid', 'EA_00000000', 'rounds', '1', 'a reason'),    ['guid', 'EA_00000000', 'rounds', '0', '1', 'a reason']),
-            (('guid', 'EA_00000000', 'seconds', '70'),              ['guid', 'EA_00000000', 'seconds', '70', '0', 'Banned by admin']),
-            (('guid', 'EA_00000000', 'seconds', '150', 'a reason'), ['guid', 'EA_00000000', 'seconds', '150', '0', 'a reason']),
-        ])
+    @expect_error('InvalidArguments')
+    def test_team_and_junk(self):
+        self.cmd('admin.listPlayers', 'team', 'f00')
 
+    @expect_error('InvalidArguments')
+    def test_squad_no_team_number(self):
+        self.cmd('admin.listPlayers', 'squad')
+
+    @expect_error('InvalidArguments')
+    def test_squad_and_junk(self):
+        self.cmd('admin.listPlayers', 'squad', 'f00')
+
+    @expect_error('InvalidArguments')
+    def test_squad_no_squad_number(self):
+        self.cmd('admin.listPlayers', 'squad', '0')
+
+    @expect_error('InvalidArguments')
+    def test_squad_too_many_arguments(self):
+        self.cmd('admin.listPlayers', 'squad', '0', '0', '0', '0')
+
+    @expect_error('InvalidArguments')
+    def test_player_and_no_player_name(self):
+        self.cmd('admin.listPlayers', 'player')
+
+    @expect_error('InvalidArguments')
+    def test_player_too_many_arguments(self):
+        self.cmd('admin.listPlayers', 'player', 'f00', 'fOO')
+
+
+
+
+class Test_admin_say(BF3_authenticated_TestCase):
+
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
+
+    ## admin.say <message: string> <players: player subset>
+
+    def test_nominal_all(self):
+        self.cmd('admin.say', 'msg blah', 'all')
+
+    def test_nominal_team(self):
+        self.cmd('admin.say', 'msg blah', 'team', '0')
+
+    def test_nominal_squad(self):
+        self.cmd('admin.say', 'msg blah', 'squad', '0', '0')
+
+    def test_nominal_player(self):
+        self.cmd('admin.say', 'msg blah', 'player', 'f00')
+
+
+    @expect_error('InvalidArguments')
+    def test_no_argument(self):
+        self.cmd('admin.say')
+
+    @expect_error('InvalidArguments')
+    def test_too_many_arguments(self):
+        self.cmd('admin.say', 'f00', 'f00', 'f00', 'f00', 'f00')
+
+    @expect_error('InvalidArguments')
+    def test_not_enough_argument(self):
+        self.cmd('admin.say', 'f00')
+
+    @expect_error('InvalidArguments')
+    def test_all_and_junk(self):
+        self.cmd('admin.say', 'msg blah', 'all', 'f00')
+
+    @expect_error('InvalidTeam')
+    def test_team_no_team_number(self):
+        self.cmd('admin.say', 'msg blah', 'team')
+
+    @expect_error('InvalidTeam')
+    def test_team_and_junk(self):
+        self.cmd('admin.say', 'msg blah', 'team', 'f00')
+
+    @expect_error('InvalidSquad')
+    def test_squad_no_team_number(self):
+        self.cmd('admin.say', 'msg blah', 'squad')
+
+    @expect_error('InvalidSquad')
+    def test_squad_and_junk(self):
+        self.cmd('admin.say', 'msg blah', 'squad', 'f00')
+
+    @expect_error('InvalidSquad')
+    def test_squad_no_squad_number(self):
+        self.cmd('admin.say', 'msg blah', 'squad', '0')
+
+    @expect_error('InvalidSquad')
+    def test_squad_too_many_arguments(self):
+        self.cmd('admin.say', 'msg blah', 'squad', '0', '0', '0', '0')
+
+    @expect_error('InvalidPlayer')
+    def test_player_and_no_player_name(self):
+        self.cmd('admin.say', 'msg blah', 'player')
+
+    @expect_error('InvalidPlayer')
+    def test_player_too_many_arguments(self):
+        self.cmd('admin.say', 'msg blah', 'player', 'f00', 'fOO')
+
+    def test_nominal_128_char_message(self):
+        # maximum message length is 128
+        msg = '123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 12345678'
+        self.assertEqual(128, len(msg))
+        self.cmd('admin.say', msg, 'all')
+
+    @expect_error('TooLongMessage')
+    def test_129_char_message(self):
+        # maximum message length is 128
+        msg = '123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789'
+        self.assertEqual(129, len(msg))
+        self.cmd('admin.say', msg, 'all')
+
+
+
+
+class _banList_TestCase(BF3_authenticated_TestCase):
+
+    protocol_log_level = logging.ERROR
+    bf3_host = host
+    bf3_port = port
+    bf3_passwd = pw
 
     def _seek_number_of_bans(self):
         """
@@ -493,7 +509,9 @@ class Test_banList(BF3_authenticated_TestCase):
 
 
     def _fill_10000_bans(self):
-
+        """
+        Use threads to fill up to 10000 bans faster.
+        """
         class BanAdderThread(threading.Thread):
             lock = threading.Lock()
             count = None
@@ -517,18 +535,16 @@ class Test_banList(BF3_authenticated_TestCase):
                             BanAdderThread.count += 1
 
         BanAdderThread.cmd = self.cmd
-        BanAdderThread.count = 10000
 
         # seek how many bans are in the banlist
         num_bans = self._seek_number_of_bans()
+        BanAdderThread.count = 10000 - num_bans
 
         if num_bans == 10000:
             return
         elif num_bans > 10000:
             self.fail("banList contains more than 10000 entries")
 
-        # adjust the number of bans to add
-        BanAdderThread.count = 10000 - num_bans
 
         if BanAdderThread.count > 50:
             # old_logging_level = logging.getLogger('FrostbiteServer').level
@@ -551,7 +567,7 @@ class Test_banList(BF3_authenticated_TestCase):
             num_bans = self._seek_number_of_bans()
 
         consecutive_fails = 0
-        while num_bans <= 10000:
+        while num_bans < 10000:
             try:
                 self.cmd('banList.add', 'name', '%s-%s' % (int(time.time()), num_bans), 'perm')
                 consecutive_fails = 0
@@ -562,35 +578,116 @@ class Test_banList(BF3_authenticated_TestCase):
                     self.fail("Too many timeouts when trying to fill 10000 bans")
 
 
-    @unittest.skipIf(skip_time_consuming_tests, 'skipping time consuming test')
-    @expect_error('Full')
-    def test_banList_add__Full(self):
+
+class Test_banList_add(_banList_TestCase):
+
+    ## banList.add <id-type, id, timeout, reason>
+
+    @expect_error('InvalidArguments')
+    def test_no_argument(self):
+        self.cmd('banList.add')
+
+    @expect_error('InvalidArguments')
+    def test_too_many_arguments(self):
+        self.cmd('banList.clear')
+        self.cmd('banList.add', 'name', 'id', 'perm', 'reason', 'f00', 'bar')
+        self.fail("expected error InvalidArguments, but command succeeded instead and banlist content is %r" % self.cmd('banList.list'))
+
+    def test_reason_80_char(self):
+        reason = 'reason 89 123456789 123456789 123456789 123456789 123456789 123456789 123456789 '
+        self.assertEqual(80, len(reason))
+        self.cmd('banList.clear')
+        self.cmd('banList.add', 'name', 'id', 'perm', reason)
+        self.assertEqual(['name', 'id', 'perm', '0', '0', reason], self.cmd('banList.list'))
+
+    @expect_error('InvalidBanReason')
+    def test_reason_81_char(self):
+        reason = 'reason 89 123456789 123456789 123456789 123456789 123456789 123456789 123456789 1'
+        self.assertEqual(81, len(reason))
+        self.cmd('banList.clear')
+        self.cmd('banList.add', 'name', 'id', 'perm', reason)
+        self.fail("expected error InvalidArguments, but command succeeded instead and banlist content is %r" % self.cmd('banList.list'))
+
+    def _test_nominal(self, test_data):
+        for args, expected in test_data:
+            print "banList.add %s" % ", ".join(args)
+            self.cmd('banList.clear')
+            self.cmd('banList.add', *args)
+            result = self.cmd('banList.list')
+            try:
+                self.assertEqual(expected[0:3], result[0:3])
+                self.assertAlmostEqual(int(expected[3]), int(result[3]), delta=2)
+                self.assertEqual(expected[4:], result[4:])
+            except AssertionError:
+                self.assertEqual(expected, result) # will give a better failure message with complete diff
+
+    def test_nominal_by_name(self):
+        self._test_nominal([
+            (('name', 'f00', 'perm'),                       ['name', 'f00', 'perm', '0', '0', 'Banned by admin']),
+            (('name', 'f00', 'perm', 'a reason'),           ['name', 'f00', 'perm', '0', '0', 'a reason']),
+            (('name', 'f00', 'rounds', '1'),                ['name', 'f00', 'rounds', '0', '1', 'Banned by admin']),
+            (('name', 'f00', 'rounds', '1', 'a reason'),    ['name', 'f00', 'rounds', '0', '1', 'a reason']),
+            (('name', 'f00', 'seconds', '70'),              ['name', 'f00', 'seconds', '70', '0', 'Banned by admin']),
+            (('name', 'f00', 'seconds', '150', 'a reason'), ['name', 'f00', 'seconds', '150', '0', 'a reason']),
+        ])
+
+    def test_nominal_by_ip(self):
+        self._test_nominal([
+            (('ip', '11.22.33.44', 'perm'),                       ['ip', '11.22.33.44', 'perm', '0', '0', 'Banned by admin']),
+            (('ip', '11.22.33.44', 'perm', 'a reason'),           ['ip', '11.22.33.44', 'perm', '0', '0', 'a reason']),
+            (('ip', '11.22.33.44', 'rounds', '1'),                ['ip', '11.22.33.44', 'rounds', '0', '1', 'Banned by admin']),
+            (('ip', '11.22.33.44', 'rounds', '1', 'a reason'),    ['ip', '11.22.33.44', 'rounds', '0', '1', 'a reason']),
+            (('ip', '11.22.33.44', 'seconds', '70'),              ['ip', '11.22.33.44', 'seconds', '70', '0', 'Banned by admin']),
+            (('ip', '11.22.33.44', 'seconds', '150', 'a reason'), ['ip', '11.22.33.44', 'seconds', '150', '0', 'a reason']),
+        ])
+
+    def test_nominal_by_guid(self):
+        self._test_nominal([
+            (('guid', 'EA_00000000', 'perm'),                       ['guid', 'EA_00000000', 'perm', '0', '0', 'Banned by admin']),
+            (('guid', 'EA_00000000', 'perm', 'a reason'),           ['guid', 'EA_00000000', 'perm', '0', '0', 'a reason']),
+            (('guid', 'EA_00000000', 'rounds', '1'),                ['guid', 'EA_00000000', 'rounds', '0', '1', 'Banned by admin']),
+            (('guid', 'EA_00000000', 'rounds', '1', 'a reason'),    ['guid', 'EA_00000000', 'rounds', '0', '1', 'a reason']),
+            (('guid', 'EA_00000000', 'seconds', '70'),              ['guid', 'EA_00000000', 'seconds', '70', '0', 'Banned by admin']),
+            (('guid', 'EA_00000000', 'seconds', '150', 'a reason'), ['guid', 'EA_00000000', 'seconds', '150', '0', 'a reason']),
+        ])
+
+
+    @unittest.skipIf(skip_time_consuming_tests and False, 'skipping time consuming test')
+    def test_Full(self):
         # banList can contain up to 10000
         self._fill_10000_bans()
         self.assertEqual(10000, self._seek_number_of_bans())
         #self.cmd('banList.save')
+
         # verify that adding a 10001th map fails
-        self.cmd('banList.add', 'ip', '11.33.22.44', 'perm')
+        try:
+            self.cmd('banList.add', 'ip', '11.33.22.44', 'perm')
+            self.fail('expecting Full error')
+        except CommandFailedError, err:
+            self.assertEqual(['Full'], err.message, "expecting Full error but got %r" % err.message)
 
 
 
+
+
+class Test_banList_remove(_banList_TestCase):
 
     ## banList.remove <id-type: id-type> <id: string>
 
     @expect_error('InvalidArguments')
-    def test_banList_remove__no_argument(self):
+    def test_no_argument(self):
         self.cmd('banList.remove')
 
     @expect_error('InvalidArguments')
-    def test_banList_remove__too_many_arguments(self):
+    def test_too_many_arguments(self):
         self.cmd('banList.remove', 'f00', 'bar', 'blah')
 
     @expect_error('NotFound')
-    def test_banList_remove__not_banned(self):
+    def test_not_banned(self):
         self.cmd('banList.clear')
         self.cmd('banList.remove', 'name', 'f00')
 
-    def test_banList_remove__nominal_by_name(self):
+    def test_nominal_by_name(self):
         self.cmd('banList.clear')
         self.cmd('banList.add', 'name', 'f00bar', 'perm')
         self.assertNotEqual([], self.cmd('banList.list'))
@@ -598,7 +695,7 @@ class Test_banList(BF3_authenticated_TestCase):
         ban_list = self.cmd('banList.list')
         self.assertEqual([], ban_list, "expecting empty banlist, got %r" % ban_list)
 
-    def test_banList_remove__nominal_by_ip(self):
+    def test_nominal_by_ip(self):
         self.cmd('banList.clear')
         self.cmd('banList.add', 'ip', '11.44.55.22', 'perm')
         self.assertNotEqual([], self.cmd('banList.list'))
@@ -606,7 +703,7 @@ class Test_banList(BF3_authenticated_TestCase):
         ban_list = self.cmd('banList.list')
         self.assertEqual([], ban_list, "expecting empty banlist, got %r" % ban_list)
 
-    def test_banList_remove__nominal_by_guid(self):
+    def test_nominal_by_guid(self):
         self.cmd('banList.clear')
         self.cmd('banList.add', 'guid', 'EA_xxxxxxxx', 'perm')
         self.assertNotEqual([], self.cmd('banList.list'))
@@ -617,13 +714,15 @@ class Test_banList(BF3_authenticated_TestCase):
 
 
 
+class Test_banList_clear(_banList_TestCase):
+
     ## banList.clear
 
     @expect_error('InvalidArguments')
-    def test_banList_clear__too_many_arguments(self):
+    def test_too_many_arguments(self):
         self.cmd('banList.clear', 'f00')
 
-    def test_banList_clear__nominal(self):
+    def test_nominal(self):
         self.cmd('banList.add', 'name', 'f00bar', 'perm')
         self.assertNotEqual([], self.cmd('banList.list'))
         self.cmd('banList.clear')
@@ -633,21 +732,23 @@ class Test_banList(BF3_authenticated_TestCase):
 
 
 
+class Test_banList_list(_banList_TestCase):
+
     ## banList.list [startIndex]
 
     @expect_error('InvalidArguments')
-    def test_banList_list__too_many_arguments(self):
+    def test_too_many_arguments(self):
         self.cmd('banList.list', '0', 'f00')
 
     @expect_error('InvalidArguments')
-    def test_banList_list__negative_index(self):
+    def test_negative_index(self):
         self.cmd('banList.list', '-2')
 
     @expect_error('InvalidArguments')
-    def test_banList_list__bad_index(self):
+    def test_bad_index(self):
         self.cmd('banList.list', 'f00')
 
-    def test_banList_list__nominal(self):
+    def test_nominal(self):
         self.cmd('banList.clear')
         self.cmd('banList.add', 'name', 'f001', 'perm')
         self.cmd('banList.add', 'name', 'f002', 'perm')
@@ -666,11 +767,12 @@ class Test_banList(BF3_authenticated_TestCase):
 
 
 
+class Test_banList_load_save(_banList_TestCase):
 
     ## banList.load
     ## banList.save
 
-    def test_banList_save_load__nominal(self):
+    def test_nominal(self):
         self.cmd('banList.clear')
         self.cmd('banList.add', 'name', 'f001', 'perm')
         self.cmd('banList.add', 'name', 'f002', 'perm')
@@ -686,11 +788,11 @@ class Test_banList(BF3_authenticated_TestCase):
                           'name', 'f003', 'perm', '0', '0', 'Banned by admin'], self.cmd('banList.list'))
 
     @expect_error('InvalidArguments')
-    def test_banList_load__to_many_arguments(self):
+    def test_load__to_many_arguments(self):
         self.cmd('banList.load', 'f00')
 
     @expect_error('InvalidArguments')
-    def test_banList_save__to_many_arguments(self):
+    def test_save__to_many_arguments(self):
         self.cmd('banList.save', 'f00')
 
 
@@ -726,7 +828,7 @@ class Test_mapList(BF3_authenticated_TestCase):
         self.assertEqual(['0', '3'], self.cmd('mapList.list'))
 
     @expect_error('InvalidArguments')
-    def test_mapList_clear__InvalidArguments(self):
+    def test_mapList_clear__bad_argument(self):
         self.cmd('mapList.clear', 'junk')
 
 
@@ -740,19 +842,19 @@ class Test_mapList(BF3_authenticated_TestCase):
         self.assertEqual(['1', '3', 'MP_001', 'RushLarge0', '1'], self.cmd('mapList.list'))
 
     @expect_error('InvalidArguments')
-    def test_mapList_add__InvalidArguments_missing_rounds(self):
+    def test_mapList_add__missing_rounds_argument(self):
         self.cmd('mapList.add', 'MP_001', 'RushLarge0')
 
     @expect_error('InvalidArguments')
-    def test_mapList_add__InvalidArguments_missing_rounds_and_game_type(self):
+    def test_mapList_add__missing_rounds_and_game_type_arguments(self):
         self.cmd('mapList.add', 'MP_001')
 
     @expect_error('InvalidArguments')
-    def test_mapList_add__InvalidArguments_no_argument(self):
+    def test_mapList_add__no_argument(self):
         self.cmd('mapList.add')
 
     @expect_error('InvalidMap')
-    def test_mapList_add__InvalidMap(self):
+    def test_mapList_add__bad_map_argument(self):
         self.cmd('mapList.add', 'f00', 'RushLarge0', '1')
 
     @expect_error('InvalidGameModeOnMap')
@@ -760,15 +862,15 @@ class Test_mapList(BF3_authenticated_TestCase):
         self.cmd('mapList.add', 'MP_001', 'f00', '1')
 
     @expect_error('InvalidRoundsPerMap')
-    def test_mapList_add__InvalidRoundsPerMap_0(self):
+    def test_mapList_add__0_round(self):
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '0')
 
     @expect_error('InvalidRoundsPerMap')
-    def test_mapList_add__InvalidRoundsPerMap_negative(self):
+    def test_mapList_add__negative_number_of_rounds(self):
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '-1')
 
     @expect_error('InvalidRoundsPerMap')
-    def test_mapList_add__InvalidRoundsPerMap_too_high(self):
+    def test_mapList_add__too_many_rounds(self):
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1000000000000000')
 
     def test_mapList_add__highest_number_of_rounds_accepted(self):
@@ -829,37 +931,37 @@ class Test_mapList(BF3_authenticated_TestCase):
     def test_mapList_add_with_index__index_1_on_empty_list(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '1')
-        print self.cmd('mapList.list')
+        self.fail("expecting InvalidMapIndex error, but command succeeded : %r" % self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
     def test_mapList_add_with_index__index_2_on_empty_list(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '2')
-        print self.cmd('mapList.list')
+        self.fail("expecting InvalidMapIndex error, but command succeeded : %r" % self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
     def test_mapList_add_with_index__empty_index(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '')
-        print self.cmd('mapList.list')
+        self.fail("expecting InvalidMapIndex error, but command succeeded : %r" % self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
     def test_mapList_add_with_index__negative_index(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '-4')
-        print self.cmd('mapList.list')
+        self.fail("expecting InvalidMapIndex error, but command succeeded : %r" % self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
     def test_mapList_add_with_index__bad_index(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', 'f00')
-        print self.cmd('mapList.list')
+        self.fail("expecting InvalidMapIndex error, but command succeeded : %r" % self.cmd('mapList.list'))
 
-    @expect_error('InvalidMapIndex')
-    def test_mapList_add_with_index__InvalidMapIndex_lots_of_rubbish(self):
+    @expect_error('InvalidArguments')
+    def test_mapList_add_with_index__too_many_arguments(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '5', 'f00', 'bar')
-        print self.cmd('mapList.list')
+        self.fail("expecting InvalidArguments error, but command succeeded : %r" % self.cmd('mapList.list'))
 
 
 

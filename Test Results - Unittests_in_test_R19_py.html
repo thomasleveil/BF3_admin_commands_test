@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Test Results &mdash; Unittests in test_R19.py</title>
+<title>Test Results &mdash; Unittests in C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test</title>
 <style type="text/css">
           html {
             height: 100%
@@ -572,8 +572,8 @@ jQuery.cookie = function(name, value, options) {
 <body>
 <div id="container">
 <div id="header">
-<div class="time">6 m 58 s</div>
-<h1>Unittests in test_R19.py: <strong><span class="total">162 total, </span><span class="failed">31 failed, </span><span class="ignored">2 ignored, </span><span class="passed">129 passed</span></strong>
+<div class="time">1 m 21 s</div>
+<h1>Unittests in C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test: <strong><span class="total">169 total, </span><span class="failed">31 failed, </span><span class="ignored">3 ignored, </span><span class="passed">135 passed</span></strong>
 </h1>
 <div id="treecontrol">
 <ul>
@@ -591,13 +591,13 @@ jQuery.cookie = function(name, value, options) {
 <ul id="tree">
 <li xmlns="" class="level top failed open">
 <span><em class="time">
-<div class="time">13.50 s</div>
-</em>test_R19.Test_authenticated</span>
+<div class="time">1.52 s</div>
+</em>test_R19.Test_admin_eventsEnabled</span>
 <ul>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">166 ms</div>
-</em><em class="status">failed</em>test_admin_eventsEnabled__bad_argument</span>
+<div class="time">164 ms</div>
+</em><em class="status">failed</em>test_bad_argument</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidArguments<br/></span>
@@ -606,138 +606,277 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_eventsEnabled__nominal_no_arg</span>
+<div class="time">166 ms</div>
+</em><em class="status">passed</em>test_nominal_no_arg</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">1.03 s</div>
-</em><em class="status">passed</em>test_admin_eventsEnabled__nominal_true_false</span>
+</em><em class="status">passed</em>test_nominal_true_false</span>
 </li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_too_many_arguments</span>
+</li>
+</ul>
+</li>
+<li class="level top open">
+<span><em class="time">
+<div class="time">926 ms</div>
+</em>test_R19.Test_admin_help</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_bad_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">763 ms</div>
+</em><em class="status">passed</em>test_nominal</span>
+</li>
+</ul>
+</li>
+<li class="level top failed open">
+<span><em class="time">
+<div class="time">702 ms</div>
+</em>test_R19.Test_admin_kickPlayer</span>
+<ul>
 <li class="level test">
 <span><em class="time">
 <div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_eventsEnabled__too_many_arguments</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_help__nominal</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_help__with_junk</span>
+</em><em class="status">passed</em>test_no_argument</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">failed</em>test_admin_kickPlayer__PlayerNotFound</span>
+</em><em class="status">failed</em>test_non_existing_player</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting PlayerNotFound, got CommandFailedError([&#39;InvalidPlayerName&#39;],) instead<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">failed</em>test_non_existing_player_with_reason</span>
+<ul>
+<li class="text">
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting PlayerNotFound, got CommandFailedError([&#39;InvalidPlayerName&#39;],) instead<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_too_many_arguments</span>
+</li>
+</ul>
+</li>
+<li class="level top open">
+<span><em class="time">
+<div class="time">539 ms</div>
+</em>test_R19.Test_admin_killPlayer</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_no_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_non_existing_player</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_too_many_arguments</span>
+</li>
+</ul>
+</li>
+<li class="level top failed open">
+<span><em class="time">
+<div class="time">2.76 s</div>
+</em>test_R19.Test_admin_listPlayers</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_all_and_junk</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_all_nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_bad_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_no_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_player_and_no_player_name</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_player_nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_player_too_many_arguments</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_squad_and_junk</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_squad_no_squad_number</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_squad_no_team_number</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_squad_nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_squad_too_many_arguments</span>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">failed</em>test_team_and_junk</span>
+<ul>
+<li class="text">
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidArguments<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">167 ms</div>
+</em><em class="status">passed</em>test_team_no_team_number</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_team_nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_too_many_arguments</span>
+</li>
+</ul>
+</li>
+<li class="level top open">
+<span><em class="time">
+<div class="time">865 ms</div>
+</em>test_R19.Test_admin_movePlayer</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_no_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_non_existing_player</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_one_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_three_arguments</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_two_arguments</span>
+</li>
+</ul>
+</li>
+<li class="level top failed open">
+<span><em class="time">
+<div class="time">494 ms</div>
+</em>test_R19.Test_admin_password</span>
+<ul>
+<li class="level test ignored open">
+<span><em class="time">
+<div class="time">2 ms</div>
+</em><em class="status">ignored</em>test_empty_string_argument</span>
+<ul>
+<li class="text">
+<span class="stdout">this one will set an empty string as password. Is this what the doc means by &#39;reset&#39; the password ?<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
 <div class="time">166 ms</div>
-</em><em class="status">failed</em>test_admin_kickPlayer__PlayerNotFound_with_reason</span>
+</em><em class="status">failed</em>test_nominal_no_argument</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting PlayerNotFound, got CommandFailedError([&#39;InvalidPlayerName&#39;],) instead<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 90, in test_nominal_no_argument<br/>    self.assertEqual([pw], self.cmd(&#39;admin.password&#39;))<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;InvalidArguments&#39;]<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">failed</em>test_password_with_forbidden_chars</span>
+<ul>
+<li class="text">
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidPassword, got CommandFailedError([&#39;InvalidPasswordFormat&#39;],) instead<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_kickPlayer__no_argument</span>
+</em><em class="status">passed</em>test_too_many_arguments</span>
 </li>
-<li class="level test">
+</ul>
+</li>
+<li class="level top failed open">
 <span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_kickPlayer__too_many_arguments</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_killPlayer__InvalidPlayerName</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_killPlayer__no_argument</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_killPlayer__too_many_arguments</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__all_and_junk</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__all_nominal</span>
-</li>
+<div class="time">3.95 s</div>
+</em>test_R19.Test_admin_say</span>
+<ul>
 <li class="level test">
 <span><em class="time">
 <div class="time">164 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__bad_argument</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__no_argument</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__player_and_no_player_name</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__player_nominal</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__player_too_many_arguments</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__squad_and_junk</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__squad_no_squad_number</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__squad_no_team_number</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__squad_nominal</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__squad_too_many_arguments</span>
+</em><em class="status">passed</em>test_129_char_message</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">failed</em>test_admin_listplayers__team_and_junk</span>
+</em><em class="status">failed</em>test_all_and_junk</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidArguments<br/></span>
@@ -746,108 +885,48 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
+<div class="time">167 ms</div>
+</em><em class="status">passed</em>test_no_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__team_no_team_number</span>
+</em><em class="status">passed</em>test_nominal_128_char_message</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__team_nominal</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_listplayers__too_many_arguments</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_movePlayer__InvalidPlayerName</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_movePlayer__no_argument</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_movePlayer__one_argument</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_movePlayer__three_arguments</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_movePlayer__two_arguments</span>
+</em><em class="status">passed</em>test_nominal_all</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">220 ms</div>
-</em><em class="status">failed</em>test_admin_password__nominal_no_argument</span>
+<div class="time">667 ms</div>
+</em><em class="status">failed</em>test_nominal_player</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 84, in test_admin_password__nominal_no_argument<br/>    self.cmd(&#39;admin.password&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;InvalidArguments&#39;]<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 384, in test_nominal_player<br/>    self.cmd(&#39;admin.say&#39;, &#39;msg blah&#39;, &#39;player&#39;, &#39;f00&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;InvalidArguments&#39;]<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_password__too_many_arguments</span>
+</em><em class="status">passed</em>test_nominal_squad</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">263 ms</div>
+</em><em class="status">passed</em>test_nominal_team</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">263 ms</div>
+</em><em class="status">passed</em>test_not_enough_argument</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
 <div class="time">213 ms</div>
-</em><em class="status">failed</em>test_admin_say__all_and_junk</span>
-<ul>
-<li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidArguments<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">464 ms</div>
-</em><em class="status">passed</em>test_admin_say__no_argument</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_admin_say__nominal_all</span>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">517 ms</div>
-</em><em class="status">failed</em>test_admin_say__nominal_player</span>
-<ul>
-<li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 175, in test_admin_say__nominal_player<br/>    self.cmd(&#39;admin.say&#39;, &#39;msg blah&#39;, &#39;player&#39;, &#39;f00&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;InvalidArguments&#39;]<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_say__nominal_squad</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">513 ms</div>
-</em><em class="status">passed</em>test_admin_say__nominal_team</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">513 ms</div>
-</em><em class="status">passed</em>test_admin_say__not_enough_argument</span>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">failed</em>test_admin_say__player_and_no_player_name</span>
+</em><em class="status">failed</em>test_player_and_no_player_name</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidPlayer, got CommandFailedError([&#39;InvalidArguments&#39;],) instead<br/></span>
@@ -857,7 +936,7 @@ jQuery.cookie = function(name, value, options) {
 <li class="level test failed open">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">failed</em>test_admin_say__player_too_many_arguments</span>
+</em><em class="status">failed</em>test_player_too_many_arguments</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidPlayer, got CommandFailedError([&#39;InvalidArguments&#39;],) instead<br/></span>
@@ -866,8 +945,8 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">failed</em>test_admin_say__squad_and_junk</span>
+<div class="time">213 ms</div>
+</em><em class="status">failed</em>test_squad_and_junk</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidSquad, got CommandFailedError([&#39;InvalidArguments&#39;],) instead<br/></span>
@@ -877,7 +956,7 @@ jQuery.cookie = function(name, value, options) {
 <li class="level test failed open">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">failed</em>test_admin_say__squad_no_squad_number</span>
+</em><em class="status">failed</em>test_squad_no_squad_number</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidSquad, got CommandFailedError([&#39;InvalidArguments&#39;],) instead<br/></span>
@@ -887,7 +966,7 @@ jQuery.cookie = function(name, value, options) {
 <li class="level test failed open">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">failed</em>test_admin_say__squad_no_team_number</span>
+</em><em class="status">failed</em>test_squad_no_team_number</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidSquad, got CommandFailedError([&#39;InvalidArguments&#39;],) instead<br/></span>
@@ -896,8 +975,8 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">failed</em>test_admin_say__squad_too_many_arguments</span>
+<div class="time">213 ms</div>
+</em><em class="status">failed</em>test_squad_too_many_arguments</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidSquad, got CommandFailedError([&#39;InvalidArguments&#39;],) instead<br/></span>
@@ -906,8 +985,8 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">failed</em>test_admin_say__team_and_junk</span>
+<div class="time">213 ms</div>
+</em><em class="status">failed</em>test_team_and_junk</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidTeam<br/></span>
@@ -916,8 +995,8 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">516 ms</div>
-</em><em class="status">failed</em>test_admin_say__team_no_team_number</span>
+<div class="time">166 ms</div>
+</em><em class="status">failed</em>test_team_no_team_number</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidTeam, got CommandFailedError([&#39;InvalidArguments&#39;],) instead<br/></span>
@@ -926,73 +1005,35 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_admin_say__too_many_arguments</span>
-</li>
-<li class="level test">
-<span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">passed</em>test_punkBuster_activate__nominal</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_punkBuster_isActive__nominal</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_punkBuster_pb_sv_command__bad_pb_command</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_punkBuster_pb_sv_command__no_arg</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_punkBuster_pb_sv_command__nominal_PB_SV_List</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">513 ms</div>
-</em><em class="status">passed</em>test_serverInfo__nominal</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_serverInfo__with_junk</span>
+</em><em class="status">passed</em>test_too_many_arguments</span>
 </li>
 </ul>
 </li>
 <li class="level top failed open">
 <span><em class="time">
-<div class="time">5 m 59 s</div>
-</em>test_R19.Test_banList</span>
+<div class="time">12.64 s</div>
+</em>test_R19.Test_banList_add</span>
 <ul>
 <li class="level test">
 <span><em class="time">
-<div class="time">5 m 36 s</div>
-</em><em class="status">passed</em>test_banList_add__Full</span>
+<div class="time">1.06 s</div>
+</em><em class="status">passed</em>test_Full</span>
 <ul>
 <li class="text">
-<span class="stderr">Exception in thread Thread-36:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-37:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-39:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-2:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-1:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-5:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-8:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-6:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-11:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-15:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-14:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-3:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-4:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-12:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-9:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-13:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-10:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-26:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-7:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-30:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-24:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-22:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-27:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-19:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-16:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-20:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-21:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-23:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-17:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-25:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-35:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-28:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-18:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-32:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-31:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-33:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-38:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-29:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-34:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-40:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 514, in run<br/>    BanAdderThread.cmd(&#39;banList.add&#39;, &#39;name&#39;, &#39;%s-%s&#39; % (self.prefix, BanAdderThread.count), &#39;perm&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/></span>
-</li>
-<li class="text">
-<span class="stdout">current number of bans : 10000 &lt;<br/></span>
+<span class="stdout">current number of bans : 10000 &lt;<br/>current number of bans : 10000 &lt;<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">passed</em>test_banList_add__no_argument</span>
+</em><em class="status">passed</em>test_no_argument</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">5.54 s</div>
-</em><em class="status">passed</em>test_banList_add__nominal_by_guid</span>
+<div class="time">3.53 s</div>
+</em><em class="status">passed</em>test_nominal_by_guid</span>
 <ul>
 <li class="text">
 <span class="stdout">banList.add guid, EA_00000000, perm<br/>banList.add guid, EA_00000000, perm, a reason<br/>banList.add guid, EA_00000000, rounds, 1<br/>banList.add guid, EA_00000000, rounds, 1, a reason<br/>banList.add guid, EA_00000000, seconds, 70<br/>banList.add guid, EA_00000000, seconds, 150, a reason<br/></span>
@@ -1002,7 +1043,7 @@ jQuery.cookie = function(name, value, options) {
 <li class="level test">
 <span><em class="time">
 <div class="time">3.13 s</div>
-</em><em class="status">passed</em>test_banList_add__nominal_by_ip</span>
+</em><em class="status">passed</em>test_nominal_by_ip</span>
 <ul>
 <li class="text">
 <span class="stdout">banList.add ip, 11.22.33.44, perm<br/>banList.add ip, 11.22.33.44, perm, a reason<br/>banList.add ip, 11.22.33.44, rounds, 1<br/>banList.add ip, 11.22.33.44, rounds, 1, a reason<br/>banList.add ip, 11.22.33.44, seconds, 70<br/>banList.add ip, 11.22.33.44, seconds, 150, a reason<br/></span>
@@ -1012,7 +1053,7 @@ jQuery.cookie = function(name, value, options) {
 <li class="level test">
 <span><em class="time">
 <div class="time">3.23 s</div>
-</em><em class="status">passed</em>test_banList_add__nominal_by_name</span>
+</em><em class="status">passed</em>test_nominal_by_name</span>
 <ul>
 <li class="text">
 <span class="stdout">banList.add name, f00, perm<br/>banList.add name, f00, perm, a reason<br/>banList.add name, f00, rounds, 1<br/>banList.add name, f00, rounds, 1, a reason<br/>banList.add name, f00, seconds, 70<br/>banList.add name, f00, seconds, 150, a reason<br/></span>
@@ -1021,78 +1062,121 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">865 ms</div>
-</em><em class="status">passed</em>test_banList_add__reason_with_more_than_80_char</span>
+<div class="time">540 ms</div>
+</em><em class="status">passed</em>test_reason_80_char</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">376 ms</div>
+</em><em class="status">passed</em>test_reason_81_char</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">544 ms</div>
-</em><em class="status">failed</em>test_banList_add__too_many_arguments</span>
+<div class="time">591 ms</div>
+</em><em class="status">failed</em>test_too_many_arguments</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 385, in test_banList_add__too_many_arguments<br/>    self.fail(&quot;expected error InvalidArguments, but command succeeded instead and banlist content is %r&quot; % self.cmd(&#39;banList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: expected error InvalidArguments, but command succeeded instead and banlist content is [&#39;name&#39;, &#39;id&#39;, &#39;perm&#39;, &#39;0&#39;, &#39;0&#39;, &#39;Banned by admin&#39;]<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 594, in test_too_many_arguments<br/>    self.fail(&quot;expected error InvalidArguments, but command succeeded instead and banlist content is %r&quot; % self.cmd(&#39;banList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: expected error InvalidArguments, but command succeeded instead and banlist content is [&#39;name&#39;, &#39;id&#39;, &#39;perm&#39;, &#39;0&#39;, &#39;0&#39;, &#39;Banned by admin&#39;]<br/></span>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="level top open">
+<span><em class="time">
+<div class="time">865 ms</div>
+</em>test_R19.Test_banList_clear</span>
+<ul>
 <li class="level test">
 <span><em class="time">
-<div class="time">652 ms</div>
-</em><em class="status">passed</em>test_banList_clear__nominal</span>
+<div class="time">702 ms</div>
+</em><em class="status">passed</em>test_nominal</span>
 </li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_too_many_arguments</span>
+</li>
+</ul>
+</li>
+<li class="level top open">
+<span><em class="time">
+<div class="time">2.11 s</div>
+</em>test_R19.Test_banList_list</span>
+<ul>
 <li class="level test">
 <span><em class="time">
 <div class="time">213 ms</div>
-</em><em class="status">passed</em>test_banList_clear__too_many_arguments</span>
+</em><em class="status">passed</em>test_bad_index</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">passed</em>test_banList_list__bad_index</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_banList_list__negative_index</span>
+</em><em class="status">passed</em>test_negative_index</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">1.57 s</div>
-</em><em class="status">passed</em>test_banList_list__nominal</span>
+</em><em class="status">passed</em>test_nominal</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">passed</em>test_banList_list__too_many_arguments</span>
+</em><em class="status">passed</em>test_too_many_arguments</span>
 </li>
-<li class="level test">
+</ul>
+</li>
+<li class="level top open">
 <span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_banList_load__to_many_arguments</span>
-</li>
+<div class="time">2.04 s</div>
+</em>test_R19.Test_banList_load_save</span>
+<ul>
 <li class="level test">
 <span><em class="time">
 <div class="time">213 ms</div>
-</em><em class="status">passed</em>test_banList_remove__no_argument</span>
+</em><em class="status">passed</em>test_load__to_many_arguments</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">1.67 s</div>
+</em><em class="status">passed</em>test_nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_save__to_many_arguments</span>
+</li>
+</ul>
+</li>
+<li class="level top failed open">
+<span><em class="time">
+<div class="time">3.40 s</div>
+</em>test_R19.Test_banList_remove</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_no_argument</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">865 ms</div>
-</em><em class="status">passed</em>test_banList_remove__nominal_by_guid</span>
+</em><em class="status">passed</em>test_nominal_by_guid</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">865 ms</div>
-</em><em class="status">passed</em>test_banList_remove__nominal_by_ip</span>
+<div class="time">965 ms</div>
+</em><em class="status">passed</em>test_nominal_by_ip</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">866 ms</div>
-</em><em class="status">passed</em>test_banList_remove__nominal_by_name</span>
+<div class="time">915 ms</div>
+</em><em class="status">passed</em>test_nominal_by_name</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">326 ms</div>
-</em><em class="status">failed</em>test_banList_remove__not_banned</span>
+<div class="time">327 ms</div>
+</em><em class="status">failed</em>test_not_banned</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting NotFound, got CommandFailedError([&#39;NotInList&#39;],) instead<br/></span>
@@ -1101,133 +1185,128 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">failed</em>test_banList_remove__too_many_arguments</span>
+<div class="time">164 ms</div>
+</em><em class="status">failed</em>test_too_many_arguments</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidArguments, got CommandFailedError([&#39;NotInList&#39;],) instead<br/></span>
 </li>
 </ul>
 </li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_banList_save__to_many_arguments</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">2.72 s</div>
-</em><em class="status">passed</em>test_banList_save_load__nominal</span>
-</li>
 </ul>
 </li>
 <li class="level top failed open">
 <span><em class="time">
-<div class="time">32.18 s</div>
+<div class="time">32.10 s</div>
 </em>test_R19.Test_mapList</span>
 <ul>
-<li class="level test failed open">
+<li class="level test">
 <span><em class="time">
-<div class="time">6.83 s</div>
-</em><em class="status">failed</em>test_mapList_add__Full</span>
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_mapList_add__0_round</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">7.52 s</div>
+</em><em class="status">passed</em>test_mapList_add__Full</span>
 <ul>
 <li class="text">
-<span class="stderr">Exception in thread Thread-50:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 483, in run<br/>    self.__target(*self.__args, **self.__kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 785, in add_20_maps<br/>    self.cmd(&#39;mapList.add&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 324, in command<br/>    response = self._wait_for_response(command_id)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 410, in _wait_for_response<br/>    raise CommandTimeoutError(&quot;Did not receive any response for sequence #%i.&quot; % command_id)<br/>CommandTimeoutError: Did not receive any response for sequence #10270.<br/>Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error Full<br/></span>
+<span class="stderr">Exception in thread Thread-9:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 483, in run<br/>    self.__target(*self.__args, **self.__kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 888, in add_20_maps<br/>    self.cmd(&#39;mapList.add&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-8:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 483, in run<br/>    self.__target(*self.__args, **self.__kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 888, in add_20_maps<br/>    self.cmd(&#39;mapList.add&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/>Exception in thread Thread-10:<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 530, in __bootstrap_inner<br/>    self.run()<br/>  File &quot;c:\python27\Lib\threading.py&quot;, line 483, in run<br/>    self.__target(*self.__args, **self.__kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 888, in add_20_maps<br/>    self.cmd(&#39;mapList.add&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;Full&#39;]<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">218 ms</div>
-</em><em class="status">passed</em>test_mapList_add__InvalidArguments_missing_rounds</span>
-</li>
-<li class="level test">
-<span><em class="time">
 <div class="time">213 ms</div>
-</em><em class="status">passed</em>test_mapList_add__InvalidArguments_missing_rounds_and_game_type</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_mapList_add__InvalidArguments_no_argument</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_mapList_add__InvalidGameModeOnMap</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">failed</em>test_mapList_add__InvalidMap</span>
+<div class="time">214 ms</div>
+</em><em class="status">failed</em>test_mapList_add__bad_map_argument</span>
 <ul>
 <li class="text">
 <span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 21, in wrapper<br/>    raise AssertionError(&quot;expecting %s, got %r instead&quot; % (self.error_type, err))<br/>AssertionError: expecting InvalidMap, got CommandFailedError([&#39;InvalidMapName&#39;],) instead<br/></span>
 </li>
 </ul>
 </li>
-<li class="level test">
+<li class="level test failed open">
 <span><em class="time">
-<div class="time">213 ms</div>
-</em><em class="status">passed</em>test_mapList_add__InvalidRoundsPerMap_0</span>
+<div class="time">646 ms</div>
+</em><em class="status">failed</em>test_mapList_add__highest_number_of_rounds_accepted</span>
+<ul>
+<li class="text">
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 879, in test_mapList_add__highest_number_of_rounds_accepted<br/>    self.assertEqual([&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1999999999999999&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg...<br/>First differing element 4:<br/>1999999999999999<br/>1233977343<br/>- [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1999999999999999&#39;]<br/>?                                       ^^^^^^^^^^^^^^<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1233977343&#39;]<br/>?                                      +++ ^^^^^<br/></span>
+</li>
+</ul>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">213 ms</div>
-</em><em class="status">passed</em>test_mapList_add__InvalidRoundsPerMap_negative</span>
+</em><em class="status">passed</em>test_mapList_add__missing_rounds_and_game_type_arguments</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_mapList_add__InvalidRoundsPerMap_too_high</span>
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_mapList_add__missing_rounds_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_mapList_add__negative_number_of_rounds</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_mapList_add__no_argument</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">539 ms</div>
 </em><em class="status">passed</em>test_mapList_add__nominal</span>
 </li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_mapList_add__too_many_rounds</span>
+</li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">508 ms</div>
-</em><em class="status">failed</em>test_mapList_add__nominal_1999999999999999_rounds</span>
+<div class="time">593 ms</div>
+</em><em class="status">failed</em>test_mapList_add_with_index__bad_index</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 776, in test_mapList_add__nominal_1999999999999999_rounds<br/>    self.assertEqual([&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1999999999999999&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg...<br/>First differing element 4:<br/>1999999999999999<br/>1233977343<br/>- [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1999999999999999&#39;]<br/>?                                       ^^^^^^^^^^^^^^<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1233977343&#39;]<br/>?                                      +++ ^^^^^<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 958, in test_mapList_add_with_index__bad_index<br/>    self.fail(&quot;expecting InvalidMapIndex error, but command succeeded : %r&quot; % self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: expecting InvalidMapIndex error, but command succeeded : [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;]<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">491 ms</div>
+</em><em class="status">failed</em>test_mapList_add_with_index__empty_index</span>
+<ul>
+<li class="text">
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 946, in test_mapList_add_with_index__empty_index<br/>    self.fail(&quot;expecting InvalidMapIndex error, but command succeeded : %r&quot; % self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: expecting InvalidMapIndex error, but command succeeded : [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;]<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">426 ms</div>
-</em><em class="status">passed</em>test_mapList_add_with_index__InvalidMapIndex_1</span>
+</em><em class="status">passed</em>test_mapList_add_with_index__index_1_on_empty_list</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">376 ms</div>
+</em><em class="status">passed</em>test_mapList_add_with_index__index_2_on_empty_list</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">326 ms</div>
-</em><em class="status">failed</em>test_mapList_add_with_index__InvalidMapIndex_lots_of_rubish</span>
+<div class="time">541 ms</div>
+</em><em class="status">failed</em>test_mapList_add_with_index__negative_index</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidMapIndex<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">326 ms</div>
-</em><em class="status">failed</em>test_mapList_add_with_index__InvalidMapIndex_negative</span>
-<ul>
-<li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidMapIndex<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">426 ms</div>
-</em><em class="status">failed</em>test_mapList_add_with_index__InvalidMapIndex_rubish</span>
-<ul>
-<li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 23, in wrapper<br/>    raise AssertionError(&quot;expecting error %s&quot; % self.error_type)<br/>AssertionError: expecting error InvalidMapIndex<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 952, in test_mapList_add_with_index__negative_index<br/>    self.fail(&quot;expecting InvalidMapIndex error, but command succeeded : %r&quot; % self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: expecting InvalidMapIndex error, but command succeeded : [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;]<br/></span>
 </li>
 </ul>
 </li>
@@ -1235,6 +1314,16 @@ jQuery.cookie = function(name, value, options) {
 <span><em class="time">
 <div class="time">1.67 s</div>
 </em><em class="status">passed</em>test_mapList_add_with_index__nominal</span>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">494 ms</div>
+</em><em class="status">failed</em>test_mapList_add_with_index__too_many_arguments</span>
+<ul>
+<li class="text">
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 964, in test_mapList_add_with_index__too_many_arguments<br/>    self.fail(&quot;expecting InvalidArguments error, but command succeeded : %r&quot; % self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: expecting InvalidArguments error, but command succeeded : [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;]<br/></span>
+</li>
+</ul>
 </li>
 <li class="level test ignored open">
 <span><em class="time">
@@ -1248,22 +1337,17 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">167 ms</div>
-</em><em class="status">passed</em>test_mapList_clear__InvalidArguments</span>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">329 ms</div>
-</em><em class="status">failed</em>test_mapList_clear__nominal</span>
-<ul>
-<li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 723, in test_mapList_clear__nominal<br/>    self.assertEqual([&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;5&#39;, &#39;3&#39;, &#39;MP_007&#39;, &#39;SquadRus...<br/>First differing element 0:<br/>1<br/>5<br/>Second list contains 12 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;1&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;]<br/>+ [&#39;5&#39;,<br/>+  &#39;3&#39;,<br/>+  &#39;MP_007&#39;,<br/>+  &#39;SquadRush0&#39;,<br/>+  &#39;3&#39;,<br/>+  &#39;MP_003&#39;,<br/>+  &#39;ConquestSmall0&#39;,<br/>+  &#39;2&#39;,<br/>+  &#39;MP_013&#39;,<br/>+  &#39;TeamDeathMatch0&#39;,<br/>+  &#39;4&#39;,<br/>+  &#39;MP_001&#39;,<br/>+  &#39;RushLarge0&#39;,<br/>+  &#39;1&#39;,<br/>+  &#39;MP_001&#39;,<br/>+  &#39;RushLarge0&#39;,<br/>+  &#39;1&#39;]<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test failed open">
-<span><em class="time">
 <div class="time">163 ms</div>
+</em><em class="status">passed</em>test_mapList_clear__bad_argument</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">966 ms</div>
+</em><em class="status">passed</em>test_mapList_clear__nominal</span>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">213 ms</div>
 </em><em class="status">failed</em>test_mapList_endRound__bad_team_id</span>
 <ul>
 <li class="text">
@@ -1278,11 +1362,11 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">164 ms</div>
+<div class="time">214 ms</div>
 </em><em class="status">failed</em>test_mapList_endRound__nominal</span>
 <ul>
 <li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 1068, in test_mapList_endRound__nominal<br/>    self.cmd(&#39;mapList.endRound&#39;, &#39;0&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;UnableToEndRound&#39;]<br/></span>
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 1195, in test_mapList_endRound__nominal<br/>    self.cmd(&#39;mapList.endRound&#39;, &#39;0&#39;)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 141, in cmd<br/>    return self.__class__.t_conn.command(*args)<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\protocol.py&quot;, line 326, in command<br/>    raise CommandFailedError(response)<br/>CommandFailedError: [&#39;UnableToEndRound&#39;]<br/></span>
 </li>
 </ul>
 </li>
@@ -1298,27 +1382,27 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">639 ms</div>
+<div class="time">1.09 s</div>
 </em><em class="status">passed</em>test_mapList_getMapIndices__one_map</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_mapList_getMapIndices__too_many_arguments</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">426 ms</div>
+<div class="time">376 ms</div>
 </em><em class="status">passed</em>test_mapList_getRounds__nominal</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_mapList_getRounds__too_many_arguments</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">702 ms</div>
+<div class="time">802 ms</div>
 </em><em class="status">passed</em>test_mapList_list__nominal</span>
 </li>
 <li class="level test">
@@ -1338,48 +1422,38 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">5.54 s</div>
+<div class="time">1.94 s</div>
 </em><em class="status">passed</em>test_mapList_list_with_index__nominal</span>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">868 ms</div>
+</em><em class="status">failed</em>test_mapList_remove__bad_index</span>
+<ul>
+<li class="text">
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 1008, in test_mapList_remove__bad_index<br/>    self.assertEqual([&#39;2&#39;,&#39;3&#39;, &#39;MP_001&#39;,&#39;RushLarge0&#39;,&#39;1&#39;, &#39;MP_003&#39;,&#39;ConquestSmall0&#39;,&#39;2&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;Conquest...<br/>First differing element 0:<br/>2<br/>1<br/>First list contains 3 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">802 ms</div>
+</em><em class="status">passed</em>test_mapList_remove__index_too_high</span>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">870 ms</div>
+</em><em class="status">failed</em>test_mapList_remove__negative_index</span>
+<ul>
+<li class="text">
+<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 1014, in test_mapList_remove__negative_index<br/>    self.assertEqual([&#39;2&#39;,&#39;3&#39;, &#39;MP_001&#39;,&#39;RushLarge0&#39;,&#39;1&#39;, &#39;MP_003&#39;,&#39;ConquestSmall0&#39;,&#39;2&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;Conquest...<br/>First differing element 0:<br/>2<br/>1<br/>First list contains 3 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/></span>
+</li>
+</ul>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">163 ms</div>
-</em><em class="status">passed</em>test_mapList_remove__InvalidArguments_missing</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">702 ms</div>
-</em><em class="status">passed</em>test_mapList_remove__InvalidArguments_too_many</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">326 ms</div>
-</em><em class="status">passed</em>test_mapList_remove__InvalidMapIndex_empty_list</span>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">971 ms</div>
-</em><em class="status">failed</em>test_mapList_remove__InvalidMapIndex_negative</span>
-<ul>
-<li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 887, in test_mapList_remove__InvalidMapIndex_negative<br/>    self.assertEqual([&#39;2&#39;,&#39;3&#39;, &#39;MP_001&#39;,&#39;RushLarge0&#39;,&#39;1&#39;, &#39;MP_003&#39;,&#39;ConquestSmall0&#39;,&#39;2&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;Conquest...<br/>First differing element 0:<br/>2<br/>1<br/>First list contains 3 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">871 ms</div>
-</em><em class="status">failed</em>test_mapList_remove__InvalidMapIndex_not_index</span>
-<ul>
-<li class="text">
-<span class="stderr">Failure<br/>Traceback (most recent call last):<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 318, in run<br/>    testMethod()<br/>  File &quot;C:\Users\Thomas\workspace-pycharm\BF3_admin_commands_test\lib\bf3testutils.py&quot;, line 18, in wrapper<br/>    func(*args, **kwargs)<br/>  File &quot;C:/Users/Thomas/workspace-pycharm/BF3_admin_commands_test/test_R19.py&quot;, line 881, in test_mapList_remove__InvalidMapIndex_not_index<br/>    self.assertEqual([&#39;2&#39;,&#39;3&#39;, &#39;MP_001&#39;,&#39;RushLarge0&#39;,&#39;1&#39;, &#39;MP_003&#39;,&#39;ConquestSmall0&#39;,&#39;2&#39;], self.cmd(&#39;mapList.list&#39;))<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 494, in assertEqual<br/>    assertion_func(first, second, msg=msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 723, in assertListEqual<br/>    self.assertSequenceEqual(list1, list2, msg, seq_type=list)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 705, in assertSequenceEqual<br/>    self.fail(msg)<br/>  File &quot;c:\python27\Lib\unittest\case.py&quot;, line 393, in fail<br/>    raise self.failureException(msg)<br/>AssertionError: Lists differ: [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarg... != [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;Conquest...<br/>First differing element 0:<br/>2<br/>1<br/>First list contains 3 additional elements.<br/>First extra element 5:<br/>MP_003<br/>- [&#39;2&#39;, &#39;3&#39;, &#39;MP_001&#39;, &#39;RushLarge0&#39;, &#39;1&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/>+ [&#39;1&#39;, &#39;3&#39;, &#39;MP_003&#39;, &#39;ConquestSmall0&#39;, &#39;2&#39;]<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">702 ms</div>
-</em><em class="status">passed</em>test_mapList_remove__InvalidMapIndex_too_hig</span>
+</em><em class="status">passed</em>test_mapList_remove__no_argument</span>
 </li>
 <li class="level test">
 <span><em class="time">
@@ -1388,12 +1462,22 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
-</em><em class="status">passed</em>test_mapList_restartRound__nominal</span>
+<div class="time">376 ms</div>
+</em><em class="status">passed</em>test_mapList_remove__on_an_empty_list</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">752 ms</div>
+</em><em class="status">passed</em>test_mapList_remove__too_many_arguments</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">213 ms</div>
+</em><em class="status">passed</em>test_mapList_restartRound__nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_mapList_restartRound__too_many_arguments</span>
 </li>
 <li class="level test">
@@ -1408,7 +1492,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">1.88 s</div>
+<div class="time">1.83 s</div>
 </em><em class="status">passed</em>test_mapList_save_load_nominal</span>
 </li>
 <li class="level test failed open">
@@ -1423,29 +1507,29 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_mapList_setNextMapIndex__no_argument</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">1.34 s</div>
+<div class="time">1.24 s</div>
 </em><em class="status">passed</em>test_mapList_setNextMapIndex__nominal</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">376 ms</div>
+<div class="time">326 ms</div>
 </em><em class="status">passed</em>test_mapList_setNextMapIndex__too_high_index</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_mapList_setNextMapIndex__too_many_arguments</span>
 </li>
 </ul>
 </li>
 <li class="level top failed open">
 <span><em class="time">
-<div class="time">13.81 s</div>
+<div class="time">14.83 s</div>
 </em>test_R19.Test_not_authenticated</span>
 <ul>
 <li class="level test">
@@ -1460,22 +1544,22 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">177 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_listplayers__bad_argument</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_listplayers__no_argument</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_listplayers__player_and_no_player_name</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_listplayers__player_nominal</span>
 </li>
 <li class="level test">
@@ -1505,7 +1589,7 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_listplayers__squad_too_many_arguments</span>
 </li>
 <li class="level test failed open">
@@ -1520,22 +1604,22 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">165 ms</div>
+<div class="time">168 ms</div>
 </em><em class="status">passed</em>test_listplayers__team_no_team_number</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">164 ms</div>
+<div class="time">663 ms</div>
 </em><em class="status">passed</em>test_listplayers__team_nominal</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_listplayers__too_many_arguments</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">1.13 s</div>
+<div class="time">1.53 s</div>
 </em><em class="status">passed</em>test_login_hashed__and__logout__nominal</span>
 </li>
 <li class="level test">
@@ -1545,12 +1629,12 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_login_hashed__no_argument</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_login_hashed__too_many_arguments</span>
 </li>
 <li class="level test">
@@ -1560,12 +1644,12 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_login_plainText__bad_password</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_login_plainText__no_argument</span>
 </li>
 <li class="level test">
@@ -1575,22 +1659,22 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_logout__too_many_arguments</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">6.78 s</div>
+<div class="time">6.62 s</div>
 </em><em class="status">passed</em>test_not_allowed_commands_raise_LogInRequired</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">163 ms</div>
+<div class="time">213 ms</div>
 </em><em class="status">passed</em>test_quit__too_many_arguments</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">213 ms</div>
+<div class="time">163 ms</div>
 </em><em class="status">passed</em>test_unknown_command</span>
 </li>
 <li class="level test">
@@ -1602,6 +1686,55 @@ jQuery.cookie = function(name, value, options) {
 <span><em class="time">
 <div class="time">213 ms</div>
 </em><em class="status">passed</em>test_version__InvalidArguments</span>
+</li>
+</ul>
+</li>
+<li class="level top open">
+<span><em class="time">
+<div class="time">865 ms</div>
+</em>test_R19.Test_punkBuster</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_punkBuster_activate__nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_punkBuster_isActive__nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_punkBuster_pb_sv_command__bad_pb_command</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_punkBuster_pb_sv_command__no_arg</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_punkBuster_pb_sv_command__nominal_PB_SV_List</span>
+</li>
+</ul>
+</li>
+<li class="level top open">
+<span><em class="time">
+<div class="time">376 ms</div>
+</em>test_R19.Test_serverInfo</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">213 ms</div>
+</em><em class="status">passed</em>test_nominal</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">163 ms</div>
+</em><em class="status">passed</em>test_with_junk</span>
 </li>
 </ul>
 </li>
@@ -1626,7 +1759,7 @@ jQuery.cookie = function(name, value, options) {
 </div>
 </div>
 <div id="footer">
-<p>Generated by PyCharm on 27/01/12 03:00</p>
+<p>Generated by PyCharm on 27/01/12 22:44</p>
 </div>
 </body>
 </html>
