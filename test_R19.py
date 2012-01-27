@@ -719,6 +719,7 @@ class Test_mapList(BF3_authenticated_TestCase):
     ## mapList.clear
 
     def test_mapList_clear__nominal(self):
+        self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1')
         self.assertEqual(['1', '3', 'MP_001', 'RushLarge0', '1'], self.cmd('mapList.list'))
         self.cmd('mapList.clear')
@@ -770,19 +771,21 @@ class Test_mapList(BF3_authenticated_TestCase):
     def test_mapList_add__InvalidRoundsPerMap_too_high(self):
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1000000000000000')
 
-    def test_mapList_add__nominal_1999999999999999_rounds(self):
+    def test_mapList_add__highest_number_of_rounds_accepted(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1999999999999999')
         self.assertEqual(['1', '3', 'MP_001', 'RushLarge0', '1999999999999999'], self.cmd('mapList.list'))
 
     @unittest.skipIf(skip_time_consuming_tests, 'skipping time consuming test')
-    @expect_error('Full')
     def test_mapList_add__Full(self):
         self.cmd('mapList.clear')
 
         def add_20_maps():
             for i in range(20):
-                self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1')
+                try:
+                    self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1')
+                except CommandTimeoutError:
+                    pass
 
         # add 200 maps to the mapList
         threads = []
@@ -795,10 +798,16 @@ class Test_mapList(BF3_authenticated_TestCase):
         for t in threads:
             t.join()
 
+        # make sure we have 200 maps in the list
+        while int(self.cmd('mapList.list', '199')[0]) < 1:
+            self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1')
+
         # verify that adding a 201th map fails
-        self.cmd('mapList.add', 'MP_001', 'RushLarge0', '3')
-
-
+        try:
+            self.cmd('mapList.add', 'MP_001', 'RushLarge0', '3')
+            self.fail("expecting error Full")
+        except CommandFailedError, err:
+            self.assertEqual(['Full'], err.message, "expecting error Full, but got %r" % err.message)
 
 
     ## mapList.add with index
@@ -817,24 +826,40 @@ class Test_mapList(BF3_authenticated_TestCase):
         self.assertEqual(['4','3', 'MP_007','SquadRush0','3', 'MP_003','ConquestSmall0','2',  'MP_013','TeamDeathMatch0','4', 'MP_001','RushLarge0','1'], self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
-    def test_mapList_add_with_index__InvalidMapIndex_1(self):
+    def test_mapList_add_with_index__index_1_on_empty_list(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '1')
+        print self.cmd('mapList.list')
 
     @expect_error('InvalidMapIndex')
-    def test_mapList_add_with_index__InvalidMapIndex_negative(self):
+    def test_mapList_add_with_index__index_2_on_empty_list(self):
+        self.cmd('mapList.clear')
+        self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '2')
+        print self.cmd('mapList.list')
+
+    @expect_error('InvalidMapIndex')
+    def test_mapList_add_with_index__empty_index(self):
+        self.cmd('mapList.clear')
+        self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '')
+        print self.cmd('mapList.list')
+
+    @expect_error('InvalidMapIndex')
+    def test_mapList_add_with_index__negative_index(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '-4')
+        print self.cmd('mapList.list')
 
     @expect_error('InvalidMapIndex')
-    def test_mapList_add_with_index__InvalidMapIndex_rubish(self):
+    def test_mapList_add_with_index__bad_index(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', 'f00')
+        print self.cmd('mapList.list')
 
     @expect_error('InvalidMapIndex')
-    def test_mapList_add_with_index__InvalidMapIndex_lots_of_rubish(self):
+    def test_mapList_add_with_index__InvalidMapIndex_lots_of_rubbish(self):
         self.cmd('mapList.clear')
-        self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '0', 'f00', 'bar')
+        self.cmd('mapList.add', 'MP_001', 'RushLarge0', '1', '5', 'f00', 'bar')
+        print self.cmd('mapList.list')
 
 
 
@@ -859,35 +884,35 @@ class Test_mapList(BF3_authenticated_TestCase):
             self.cmd('mapList.list'))
 
     @expect_error('InvalidArguments')
-    def test_mapList_remove__InvalidArguments_missing(self):
+    def test_mapList_remove__no_argument(self):
         self.cmd('mapList.remove')
 
     @expect_error('InvalidArguments')
-    def test_mapList_remove__InvalidArguments_too_many(self):
+    def test_mapList_remove__too_many_arguments(self):
         self.__class__.add_maps([('MP_001', 'RushLarge0', '1'), ('MP_003', 'ConquestSmall0', '2')])
         self.cmd('mapList.remove', '0', '0')
         self.assertEqual(['2','3', 'MP_001','RushLarge0','1', 'MP_003','ConquestSmall0','2'], self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
-    def test_mapList_remove__InvalidMapIndex_empty_list(self):
+    def test_mapList_remove__on_an_empty_list(self):
         self.cmd('mapList.clear')
         self.cmd('mapList.remove', '0')
         self.assertEqual(['0','3'], self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
-    def test_mapList_remove__InvalidMapIndex_not_index(self):
+    def test_mapList_remove__bad_index(self):
         self.__class__.add_maps([('MP_001', 'RushLarge0', '1'), ('MP_003', 'ConquestSmall0', '2')])
         self.cmd('mapList.remove', 'f00')
         self.assertEqual(['2','3', 'MP_001','RushLarge0','1', 'MP_003','ConquestSmall0','2'], self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
-    def test_mapList_remove__InvalidMapIndex_negative(self):
+    def test_mapList_remove__negative_index(self):
         self.__class__.add_maps([('MP_001', 'RushLarge0', '1'), ('MP_003', 'ConquestSmall0', '2')])
         self.cmd('mapList.remove', '-1')
         self.assertEqual(['2','3', 'MP_001','RushLarge0','1', 'MP_003','ConquestSmall0','2'], self.cmd('mapList.list'))
 
     @expect_error('InvalidMapIndex')
-    def test_mapList_remove__InvalidMapIndex_too_hig(self):
+    def test_mapList_remove__index_too_high(self):
         self.__class__.add_maps([('MP_001', 'RushLarge0', '1'), ('MP_003', 'ConquestSmall0', '2')])
         self.cmd('mapList.remove', '2')
         self.assertEqual(['2','3', 'MP_001','RushLarge0','1', 'MP_003','ConquestSmall0','2'], self.cmd('mapList.list'))
