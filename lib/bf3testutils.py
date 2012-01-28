@@ -1,6 +1,56 @@
+import sys, os
 import unittest
 import logging
 from protocol import FrostbiteServer, CommandFailedError
+
+__all__ = ['Bf3_test_config', 'load_config_file', 'expect_error', 'BF3_connected_TestCase', 'BF3_authenticated_TestCase', 'CommandFailedError']
+
+
+class Bf3_test_config(object):
+    host = None
+    port = None
+    pw = None
+    skip_time_consuming_tests = None
+    ranked = None
+
+
+def load_config_file():
+    # load BF3 test server info from config.ini file
+    config_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config.ini')
+
+    def print_help_config_file():
+        print """ERROR: cannot find config file '%s'
+
+    config file content should look like :
+
+            [BF3]
+            host = xx.xx.xx.xx
+            port = 47000
+            password = s3cr3t
+
+            [TESTS]
+            skip_time_consuming_tests = true
+
+        """ % config_file
+
+
+    if not os.path.isfile(config_file):
+        print_help_config_file()
+        sys.exit(1)
+
+    import ConfigParser
+    try:
+        config = ConfigParser.ConfigParser()
+        config.read(config_file)
+        Bf3_test_config.host = config.get('BF3', 'host')
+        Bf3_test_config.port = config.getint('BF3', 'port')
+        Bf3_test_config.pw = config.get('BF3', 'password')
+        Bf3_test_config.ranked = config.getboolean('BF3', 'ranked')
+        Bf3_test_config.skip_time_consuming_tests = config.getboolean('TESTS', 'skip_time_consuming_tests')
+    except ConfigParser.NoSectionError, err:
+        print "ERROR: %r" % err
+        print_help_config_file()
+        sys.exit(1)
 
 
 
@@ -26,16 +76,25 @@ class expect_error(object):
 
 
 
+class TestFailuresTypes(tuple):
+    """
+    class that acts a a tuple but when called acts as if AssertionError was called.
+
+    Setting a unittest.TestCase failureException attribute to an instance of TestFailuresTypes can make the test runner
+    interpret additional exception types as failures instead of errors.
+    """
+    def __call__(self, *args, **kwargs):
+        return AssertionError(*args, **kwargs)
+
+
+
 class _BF3_TestCase(object):
 
     protocol_log_level = logging.ERROR
-    bf3_host = None
-    bf3_port = None
-    bf3_passwd = None
 
     @classmethod
     def setUpClassCommon(cls):
-        if cls.bf3_host is None or cls.bf3_port is None:
+        if Bf3_test_config.host is None or Bf3_test_config.port is None:
             raise AssertionError("BF3 test server host and port not set")
 
         FORMAT = "%(name)-20s [%(thread)-4d] %(threadName)-15s %(levelname)-8s %(message)s"
@@ -50,16 +109,6 @@ class _BF3_TestCase(object):
         logging.getLogger('FrostbiteDispatcher').setLevel(logging.ERROR)
 
 
-
-class TestFailuresTypes(tuple):
-    """
-    class that acts a a tuple but when called acts as if AssertionError was called.
-
-    Setting a unittest.TestCase failureException attribute to an instance of TestFailuresTypes can make the test runner
-    interpret additional exception types as failures instead of errors.
-    """
-    def __call__(self, *args, **kwargs):
-        return AssertionError(*args, **kwargs)
 
 
 class BF3_connected_TestCase(unittest.TestCase):
@@ -76,7 +125,7 @@ class BF3_connected_TestCase(unittest.TestCase):
         super(BF3_connected_TestCase, cls).setUpClassCommon()
 
         try:
-            cls.t_conn = FrostbiteServer(cls.bf3_host, cls.bf3_port)
+            cls.t_conn = FrostbiteServer(Bf3_test_config.host, Bf3_test_config.port)
         except:
             if hasattr(cls, 't_conn') and cls.t_conn:
                 cls.t_conn.stop()
@@ -113,13 +162,10 @@ class BF3_authenticated_TestCase(unittest.TestCase):
         Setup loggers, connect and auth to the test BF3 server.
         Run once for the whole class.
         """
-        if cls.bf3_passwd is None:
-            raise AssertionError("BF3 test server password not set")
-
         super(BF3_authenticated_TestCase, cls).setUpClassCommon()
 
         try:
-            cls.t_conn = FrostbiteServer(cls.bf3_host, cls.bf3_port, cls.bf3_passwd)
+            cls.t_conn = FrostbiteServer(Bf3_test_config.host, Bf3_test_config.port, Bf3_test_config.pw)
             cls.t_conn.auth()
         except:
             if hasattr(cls, 't_conn') and cls.t_conn:

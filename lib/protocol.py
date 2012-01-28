@@ -285,7 +285,7 @@ class FrostbiteServer(threading.Thread):
         self.__command_reply_event = threading.Event()
         self.observers = set()
         # test connection
-        sock = socket.create_connection((host, port), timeout=2)
+        sock = socket.create_connection((host, port), timeout=5)
         sock.close()
         # ok start working
         self.start()

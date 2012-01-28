@@ -1,2 +1,2 @@
-@c:\python27\python.exe test_903227.py
+@c:\python27\python.exe run.py
 @pause
