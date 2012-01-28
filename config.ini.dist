@@ -2,6 +2,7 @@
 host =
 port =
 password =
+ranked = no
 
 [TESTS]
-skip_time_consuming_tests = False
+skip_time_consuming_tests = yes
