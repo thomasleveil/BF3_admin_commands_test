@@ -1,0 +1,4 @@
+admin.teamSwitchPlayer - not useful (we can accomplish the same with admin.movePlayer).
+reservedSlotsList.aggressiveJoin - will get documented at the same time that reserved slots functionality is enabled.
+unlockList.set - not useful yet
+vars.roundWarmupTimeout - not useful yet

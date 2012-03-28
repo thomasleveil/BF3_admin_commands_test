@@ -20,7 +20,7 @@ class Test_misc(BF3_connected_TestCase):
 
 
     def test_version(self):
-        self.assertEqual(['BF3', '?????'], self.cmd('version'))
+        self.assertEqual(['BF3', '926998'], self.cmd('version'))
 
     @expect_error('InvalidArguments')
     def test_version__InvalidArguments(self):

@@ -60,7 +60,7 @@ class Test_admin_help(BF3_authenticated_TestCase):
     ## admin.help
 
     def test_nominal(self):
-        all_commands = set(['admin.eventsEnabled', 'admin.help', 'admin.kickPlayer', 'admin.killPlayer', 'admin.listPlayers',
+        all_commands = ['admin.eventsEnabled', 'admin.help', 'admin.kickPlayer', 'admin.killPlayer', 'admin.listPlayers',
             'admin.movePlayer', 'admin.password', 'admin.say', 'admin.shutDown', 'banList.add', 'banList.clear',
             'banList.list', 'banList.load', 'banList.remove', 'banList.save', 'currentLevel', 'gameAdmin.add',
             'gameAdmin.clear', 'gameAdmin.list', 'gameAdmin.load', 'gameAdmin.remove', 'gameAdmin.save', 'listPlayers',
@@ -77,10 +77,11 @@ class Test_admin_help(BF3_authenticated_TestCase):
             'vars.playerRespawnTime', 'vars.ranked', 'vars.regenerateHealth', 'vars.roundRestartPlayerCount', 'vars.roundsPerMap',
             'vars.roundStartPlayerCount', 'vars.serverDescription', 'vars.serverMessage', 'vars.serverName', 'vars.soldierHealth',
             'vars.teamKillCountForKick', 'vars.teamKillKickForBan', 'vars.teamKillValueDecreasePerSecond', 'vars.teamKillValueForKick',
-            'vars.teamKillValueIncrease', 'vars.unlockMode', 'vars.vehicleSpawnAllowed', 'vars.vehicleSpawnDelay', 'version',
-        ])
+            'vars.teamKillValueIncrease', 'vars.unlockMode', 'vars.vehicleSpawnAllowed', 'vars.vehicleSpawnDelay', 'version'
+        ] + \
+        ['admin.yell', 'vars.roundLockdownCountdown', 'admin.teamSwitchPlayer', 'reservedSlotsList.aggressiveJoin', 'unlockList.set', 'vars.roundWarmupTimeout'] # R20 update
         result = self.cmd('admin.help')
-        self.assertEqual(all_commands, set(result))
+        self.assertEqual(set(all_commands), set(result))
 
     @expect_error('InvalidArguments')
     def test_bad_argument(self):

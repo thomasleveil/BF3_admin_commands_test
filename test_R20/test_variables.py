@@ -69,7 +69,7 @@ class Test_misc(BF3_authenticated_TestCase):
 
 
 
-    ## vars.maxPlayers [nr of players: integer] todo
+    ## vars.maxPlayers [nr of players: integer]
     def test_maxPlayers(self):
         self.assert_set('maxPlayers', '0')
         self.assert_set('maxPlayers', '1')
@@ -219,9 +219,39 @@ class Test_misc(BF3_authenticated_TestCase):
 
 
 
+
+    ## vars.roundLockdownCountdown [time: seconds]
+    def test_roundLockdownCountdown_too_small(self):
+        self.assert_set('roundLockdownCountdown', '9', '10')
+
+    @unittest.skipUnless(Bf3_test_config.ranked, "server is not ranked")
+    def test_roundLockdownCountdown_too_big_on_ranked(self):
+        self.assert_set('roundLockdownCountdown', '31', '30')
+
+    @unittest.skipIf(Bf3_test_config.ranked, "server is ranked")
+    def test_roundLockdownCountdown_too_big_on_unranked(self):
+        self.assert_set('roundLockdownCountdown', '901', '900')
+
+    def test_roundLockdownCountdown(self):
+        self.assert_set('roundLockdownCountdown', '10')
+        self.assert_set('roundLockdownCountdown', '30')
+
+    def test_roundLockdownCounddown_float_value(self):
+        self.assert_set('roundLockdownCountdown', '11.54', '11')
+
+    @expect_error('InvalidArguments')
+    def test_roundStartPlayerCount_bad_argument(self):
+        self.cmd('vars.roundLockdownCountdown', 'f00')
+
+    @expect_error('InvalidArguments')
+    def test_roundStartPlayerCount_too_many_arguments(self):
+        self.cmd('vars.roundLockdownCountdown', '11', 'f00')
+
+
+
     ## vars.roundStartPlayerCount [count: integer]
     @expect_error('InvalidValue')
-    def test_roundStartPlayerCount(self):
+    def test_roundStartPlayerCount_zero(self):
         self.assert_set('roundStartPlayerCount', '0')
 
     def test_roundStartPlayerCount(self):
@@ -253,6 +283,16 @@ class Test_misc(BF3_authenticated_TestCase):
     def test_roundRestartPlayerCount_too_many_arguments(self):
         self.cmd('vars.roundRestartPlayerCount', '8', 'f00')
 
+
+
+    ## vars.serverDescription [description: string]
+    def test_serverDescription(self):
+        self.assert_set('roundRestartPlayerCount', 'test server description')
+        self.assert_set('roundRestartPlayerCount', '')
+
+    @expect_error('InvalidArguments')
+    def test_serverDescription_too_many_arguments(self):
+        self.cmd('vars.roundRestartPlayerCount', 'test server description', 'f00')
 
 
 
