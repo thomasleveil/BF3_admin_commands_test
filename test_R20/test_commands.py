@@ -455,17 +455,17 @@ class Test_admin_yell(BF3_authenticated_TestCase):
         self.cmd('admin.yell', 'msg blah', '1', 'player', 'f00', 'fOO')
 
 
-    def test_nominal_256_char_message(self):
-        # maximum message length is 256
-        msg = '123456789 ' * 25 + '123456'
-        self.assertEqual(256, len(msg))
+    def test_nominal_255_char_message(self):
+        # maximum message length is 255
+        msg = '123456789 ' * 25 + '12345'
+        self.assertEqual(255, len(msg))
         self.cmd('admin.yell', msg, '1', 'all')
 
-    @expect_error('TooLongMessage')
-    def test_257_char_message(self):
-        # maximum message length is 256
-        msg = '123456789 ' * 25 + '1234567'
-        self.assertEqual(257, len(msg))
+    @expect_error('MessageIsTooLong')
+    def test_256_char_message(self):
+        # maximum message length is 255
+        msg = '123456789 ' * 25 + '123456'
+        self.assertEqual(256, len(msg))
         self.cmd('admin.yell', msg, '1', 'all')
 
 
