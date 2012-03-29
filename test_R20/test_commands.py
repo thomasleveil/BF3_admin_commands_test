@@ -411,6 +411,10 @@ class Test_admin_yell(BF3_authenticated_TestCase):
 
 
     @expect_error('InvalidArguments')
+    def test_duration_float(self):
+        self.cmd('admin.yell', 'msg blah', '1.2')
+
+    @expect_error('InvalidArguments')
     def test_too_many_arguments(self):
         self.cmd('admin.yell', 'f00', 'f00', 'f00', 'f00', 'f00')
 
